@@ -40,7 +40,7 @@ export default function HeroSection() {
           >
             Feby
             <br />
-            <span className="text-gradient">&amp; Content Creator</span>
+            <span className="text-gradient"> Kelas x-10</span>
           </motion.h1>
 
           <motion.p
