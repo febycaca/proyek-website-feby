@@ -127,7 +127,7 @@
     background-image: var(--gradient-primary);
   }
   .bg-gradient-hero {
-    background: var(--navbg);
+    background: var(--gradient-hero);
   }
 
   .shadow-glow {
