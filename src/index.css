@@ -126,9 +126,8 @@
     @apply bg-clip-text text-transparent;
     background-image: var(--gradient-primary);
   }
-
   .bg-gradient-hero {
-    background: var(--gradient-hero);
+    background: var(--navbg);
   }
 
   .shadow-glow {
