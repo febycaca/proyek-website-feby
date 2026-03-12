@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
-
 @layer base {
   :root {
     --background: 210 20% 98%;
@@ -39,7 +37,7 @@
     /* Custom tokens */
     --gradient-primary: linear-gradient(135deg, hsl(175 80% 40%), hsl(200 80% 50%));
     --gradient-hero: linear-gradient(180deg, hsl(210 20% 98%) 0%, hsl(210 25% 94%) 100%);
-    --navbg: linear-gradient(180deg, hsl(210, 20%, 98%) 0%, hsl(0, 0%, 100%) 100%);
+    --navbg: linear-gradient(180deg, hsl(314, 100%, 80%) 0%, hsl(0, 0%, 100%) 100%);
     --shadow-glow: 0 0 40px hsl(175 80% 40% / 0.3);
     --shadow-card: 0 4px 20px hsl(220 20% 10% / 0.08);
     --shadow-card-hover: 0 8px 30px hsl(220 20% 10% / 0.12);
@@ -88,9 +86,8 @@
     --gradient-hero: linear-gradient(180deg, hsl(220 25% 6%) 0%, hsl(220 30% 10%) 100%);
     --navbg: linear-gradient(180deg, hsl(290, 73%, 52%) 0%, hsl(300, 2%, 17%) 100%);
     --shadow-glow: 0 0 60px hsl(175 80% 50% / 0.4);
-    --shadow-card: 0 4px 20px hsl(0 0% 0% / 0.3);
+    --shadow-card: 0 4px 20px hsl(0% 0% / 0.3);
     --shadow-card-hover: 0 8px 30px hsl(175 80% 50% / 0.15);
-
     --sidebar-background: 220 25% 8%;
     --sidebar-foreground: 210 20% 90%;
     --sidebar-primary: 175 80% 50%;
