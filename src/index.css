@@ -13,8 +13,8 @@
     --popover: 0 0% 100%;
     --popover-foreground: 220 20% 10%;
 
-    --primary: 175 80% 40%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 275 80% 40%;
+    --primary-foreground: 220 25% 6%;
 
     --secondary: 220 15% 92%;
     --secondary-foreground: 220 20% 20%;
@@ -38,9 +38,9 @@
     --gradient-primary: linear-gradient(135deg, hsl(303 78% 62%), hsl(309 98% 17%));
     --gradient-hero: linear-gradient(180deg, hsl(210 20% 98%) 0%, hsl(210 25% 94%) 100%);
     --navbg: linear-gradient(180deg, hsl(314, 100%, 80%) 0%, hsl(0, 0%, 100%) 100%);
-    --shadow-glow: 0 0 40px hsl(175 80% 40% / 0.3);
-    --shadow-card: 0 4px 20px hsl(220 20% 10% / 0.08);
-    --shadow-card-hover: 0 8px 30px hsl(220 20% 10% / 0.12);
+    --shadow-glow: 0 0 40px hsla(332, 82%, 59%, 0.87);
+    --shadow-card: 0 4px 20px hsla(0, 0%, 0%, 0.3);
+    --shadow-card-hover: 0 8px 30px hsla(175, 80%, 50%, 0.15);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -62,7 +62,7 @@
     --popover: 220 25% 10%;
     --popover-foreground: 210 20% 98%;
 
-    --primary: 175 80% 50%;
+    --primary: 275 80% 50%;
     --primary-foreground: 220 25% 6%;
 
     --secondary: 220 20% 18%;
@@ -85,9 +85,9 @@
     --gradient-primary: linear-gradient(135deg, hsl(0, 0%, 71%), hsl(0, 0%, 100%));
     --gradient-hero: linear-gradient(180deg, hsl(220 25% 6%) 0%, hsl(220 30% 10%) 100%);
     --navbg: linear-gradient(180deg, hsl(290, 73%, 52%) 0%, hsl(300, 2%, 17%) 100%);
-    --shadow-glow: 0 0 60px hsl(175 80% 50% / 0.4);
-    --shadow-card: 0 4px 20px hsl(0% 0% / 0.3);
-    --shadow-card-hover: 0 8px 30px hsl(175 80% 50% / 0.15);
+    --shadow-glow: 0 0 60px hsla(332, 82%, 59%, 0.87);
+    --shadow-card: 0 4px 20px hsla(0, 0%, 0%, 0.3);
+    --shadow-card-hover: 0 8px 30px hsla(175, 80%, 50%, 0.15);
     --sidebar-background: 220 25% 8%;
     --sidebar-foreground: 210 20% 90%;
     --sidebar-primary: 175 80% 50%;
