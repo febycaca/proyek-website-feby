@@ -11,6 +11,13 @@ export default function HeroSection() {
     }
   };
 
+  const socialLinks = [
+    { icon: Github, href: 'https://github.com/febycaca/proyek-website-feby.git', label: 'GitHub' },
+    { icon: Linkedin, href: '#', label: 'LinkedIn' },
+    { icon: Youtube, href: 'https://www.youtube.com/@hyurachanzz22', label: 'YouTube' },
+    { icon: Instagram, href: 'https://www.instagram.com/febycaca/', label: 'Instagram' },
+  ];
+
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero">
       {/* Background 3D tetap di belakang */}
@@ -116,15 +123,12 @@ export default function HeroSection() {
               transition={{ duration: 0.8, delay: 0.9 }}
               className="flex items-center justify-center lg:justify-start gap-6"
             >
-              {[
-                { icon: Github, href: '#', label: 'GitHub' },
-                { icon: Linkedin, href: '#', label: 'LinkedIn' },
-                { icon: Youtube, href: '#', label: 'YouTube' },
-                { icon: Instagram, href: '#', label: 'Instagram' },
-              ].map((social) => (
+              {socialLinks.map((social, index) => (
                 <motion.a
-                  key={social.label}
+                  key={index}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="p-3 rounded-full glass hover:shadow-glow transition-all duration-300"
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
