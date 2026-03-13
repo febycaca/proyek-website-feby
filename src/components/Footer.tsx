@@ -5,10 +5,10 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: Github, href: '#', label: 'GitHub' },
+    { icon: Github, href: 'https://github.com/febycaca/proyek-website-feby.git', label: 'GitHub' },
     { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Youtube, href: '#', label: 'YouTube' },
-    { icon: Instagram, href: '#', label: 'Instagram' },
+    { icon: Youtube, href: 'https://www.youtube.com/@hyurachanzz22', label: 'YouTube' },
+    { icon: Instagram, href: 'https://www.instagram.com/feyy_ca', label: 'Instagram' },
   ];
 
   return (
@@ -23,7 +23,7 @@ export default function Footer() {
           >
             <span>© {currentYear} Made with</span>
             <Heart className="h-4 w-4 text-destructive fill-destructive" />
-            <span>by Developer</span>
+            <span>by Feby Calista B.</span>
           </motion.div>
 
           <motion.div
