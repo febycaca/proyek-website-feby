@@ -33,7 +33,7 @@ export default function HeroSection() {
               
               <div className="relative w-64 h-80 md:w-80 md:h-[450px] overflow-hidden rounded-2xl glass border-2 border-white/10 shadow-2xl">
                 <img 
-                  src="/foto-feby.jpg" // GANTI DENGAN PATH FOTO KAMU
+                  src="WhatsApp Image 2026-03-13 at 12.59.08.jpeg"
                   alt="Feby Calista Balqis"
                   className="w-4 h-64 md:w-80 md:h-80 object-cover rounded-full border-4 border-primary shadow-glow"
                 />
