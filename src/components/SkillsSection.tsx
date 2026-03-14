@@ -10,7 +10,7 @@ const skills = {
   bahasa: [
     { name: 'Bahasa Indonesia', level: 98 },
     { name: 'Bahasa Inggris', level: 96 },
-    { name: 'Menulis Arab', level: 88 }, // Sesuai hobi nulis kamu!
+    { name: 'Bahasa Arab', level: 88 }, 
   ],
   sosial: [
     { name: 'Ekonomi', level: 94 },
