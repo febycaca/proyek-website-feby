@@ -15,7 +15,7 @@ export default function HeroSection() {
     { icon: Github, href: 'https://github.com/febycaca/proyek-website-feby.git', label: 'GitHub' },
     { icon: Linkedin, href: '#', label: 'LinkedIn' },
     { icon: Youtube, href: 'https://www.youtube.com/@hyurachanzz22', label: 'YouTube' },
-    { icon: Instagram, href: 'https://www.instagram.com/febycaca/', label: 'Instagram' },
+    { icon: Instagram, href: 'https://www.instagram.com/feyy_ca', label: 'Instagram' },
   ];
 
   return (
