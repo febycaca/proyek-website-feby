@@ -1,7 +1,36 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Code2, Video, Coffee, Rocket, ChevronDown } from 'lucide-react';
+import { Code2, Video, ChevronDown } from 'lucide-react';
 
+// --- KOMPONEN SAKURA (Ditaruh di dalam satu file agar tidak error import) ---
+const SakuraFalling = () => {
+  const petals = Array.from({ length: 15 });
+  return (
+    <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+      {petals.map((_, i) => (
+        <motion.div
+          key={i}
+          initial={{ top: -20, left: `${Math.random() * 100}%`, opacity: 0, rotate: 0 }}
+          animate={{ 
+            top: "110%", 
+            left: `${Math.random() * 100}%`, 
+            opacity: [0, 1, 1, 0],
+            rotate: 360 
+          }}
+          transition={{
+            duration: Math.random() * 10 + 10,
+            repeat: Infinity,
+            delay: Math.random() * 20,
+            ease: "linear"
+          }}
+          className="absolute w-3 h-3 bg-[#ffd1dc] rounded-[100%_0%_100%_20%] blur-[0.5px]"
+        />
+      ))}
+    </div>
+  );
+};
+
+// --- KOMPONEN UTAMA ---
 export default function AboutSection() {
   const [expanded, setExpanded] = useState(0);
 
@@ -18,7 +47,7 @@ export default function AboutSection() {
       content3: "Mulai dari struktur kode yang efisien sampai detail ikonografi bunga sakura yang mempercantik tampilan. Saya senang membangun sesuatu yang fungsional sekaligus nyaman dipandang."
     },
     {
-      title: "My Hobby",
+      title: "Hobby",
       content: "Selain tertarik pada coding, saya juga sangat senang menulis, terutama menulis novel dan cerpen.",
       content2: "Saya percaya bahwa suatu saat saya dapat menerbitkan buku milik saya sendiri.",
       content3: "Mungkin saya bisa membuat sebuah website perbukuan agar semua orang dapat membaca tanpa harus mengeluarkan biaya."
@@ -26,8 +55,12 @@ export default function AboutSection() {
   ];
 
   return (
-    <section id="about" className="py-20 md:py-32 bg-muted/30 overflow-hidden">
-      <div className="container mx-auto px-4">
+    <section id="about" className="relative py-20 md:py-32 bg-muted/30 overflow-hidden">
+      
+      {/* Efek Bunga Sakura */}
+      <SakuraFalling />
+
+      <div className="container mx-auto px-4 relative z-10">
         {/* Header Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -36,11 +69,11 @@ export default function AboutSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-primary font-medium mb-2 block">Tentang Saya</span>
+          <span className="text-primary font-medium mb-2 block text-pink-400">Tentang Saya</span>
           <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">
             Mengenal Lebih Dekat
           </h2>
-          <div className="w-20 h-1 bg-primary mx-auto rounded-full" />
+          <div className="w-20 h-1 bg-pink-300 mx-auto rounded-full" />
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
@@ -55,9 +88,9 @@ export default function AboutSection() {
             <div className="relative group">
               <motion.div 
                 whileHover={{ scale: 1.02, rotate: -1 }}
-                className="aspect-square rounded-2xl overflow-hidden glass shadow-card relative z-10"
+                className="aspect-square rounded-2xl overflow-hidden glass shadow-card relative z-10 border border-pink-100"
               >
-                <div className="w-full h-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
+                <div className="w-full h-full bg-gradient-to-br from-pink-50 to-orange-50 flex items-center justify-center">
                   <motion.span 
                     animate={{ y: [0, -10, 0] }}
                     transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
@@ -68,15 +101,15 @@ export default function AboutSection() {
                 </div>
               </motion.div>
               
-              <div className="absolute -inset-4 bg-primary/10 rounded-2xl blur-2xl -z-10 group-hover:bg-primary/20 transition-colors" />
+              <div className="absolute -inset-4 bg-pink-200/20 rounded-2xl blur-2xl -z-10 group-hover:bg-pink-200/30 transition-colors" />
 
               <motion.div 
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
                 transition={{ delay: 0.5, type: "spring" }}
-                className="absolute -bottom-6 -right-6 p-4 glass rounded-xl shadow-card z-20"
+                className="absolute -bottom-6 -right-6 p-4 glass rounded-xl shadow-card z-20 border border-pink-100"
               >
-                <p className="font-display font-bold text-2xl text-gradient">5+ Tahun</p>
+                <p className="font-display font-bold text-2xl text-pink-500">5+ Tahun</p>
                 <p className="text-sm text-muted-foreground">Pengalaman</p>
               </motion.div>
             </div>
@@ -91,18 +124,18 @@ export default function AboutSection() {
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="border border-primary/10 rounded-xl overflow-hidden bg-background/50 backdrop-blur-sm"
+                  className="border border-pink-100 rounded-xl overflow-hidden bg-white/40 backdrop-blur-sm"
                 >
                   <button
                     onClick={() => setExpanded(expanded === index ? -1 : index)}
-                    className="w-full p-4 flex items-center justify-between text-left hover:bg-primary/5 transition-colors"
+                    className="w-full p-4 flex items-center justify-between text-left hover:bg-pink-50 transition-colors"
                   >
-                    <span className="font-display font-bold text-lg">{item.title}</span>
+                    <span className="font-display font-bold text-lg text-gray-700">{item.title}</span>
                     <motion.div
                       animate={{ rotate: expanded === index ? 180 : 0 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <ChevronDown className="h-5 w-5 text-primary" />
+                      <ChevronDown className="h-5 w-5 text-pink-400" />
                     </motion.div>
                   </button>
 
@@ -114,8 +147,7 @@ export default function AboutSection() {
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.3, ease: "easeInOut" }}
                       >
-                        {/* Di sini perbaikannya: Menggunakan satu wrapper dan space-y */}
-                        <div className="p-4 pt-0 space-y-3 text-muted-foreground leading-relaxed text-sm md:text-base">
+                        <div className="p-4 pt-0 space-y-3 text-gray-600 leading-relaxed text-sm md:text-base">
                           <p>{item.content}</p>
                           {item.content2 && <p>{item.content2}</p>}
                           {item.content3 && <p>{item.content3}</p>}
@@ -137,11 +169,11 @@ export default function AboutSection() {
                   whileHover={{ y: -5 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="p-4 glass rounded-xl text-center shadow-sm border border-transparent hover:border-primary/20 transition-all"
+                  className="p-4 bg-white/50 backdrop-blur-md rounded-xl text-center shadow-sm border border-pink-50 hover:border-pink-200 transition-all"
                 >
-                  <stat.icon className="h-6 w-6 text-primary mx-auto mb-2" />
-                  <p className="font-display text-2xl font-bold">{stat.value}</p>
-                  <p className="text-sm text-muted-foreground">{stat.label}</p>
+                  <stat.icon className="h-6 w-6 text-pink-400 mx-auto mb-2" />
+                  <p className="font-display text-2xl font-bold text-gray-800">{stat.value}</p>
+                  <p className="text-sm text-gray-500">{stat.label}</p>
                 </motion.div>
               ))}
             </div>
