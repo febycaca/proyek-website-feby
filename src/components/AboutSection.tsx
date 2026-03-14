@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Code2, Video, ChevronDown } from 'lucide-react';
 
-// --- KOMPONEN SAKURA (Ditaruh di dalam satu file agar tidak error import) ---
+// --- BAGIAN EFEK SAKURA ---
 const SakuraFalling = () => {
   const petals = Array.from({ length: 15 });
   return (
@@ -30,7 +30,7 @@ const SakuraFalling = () => {
   );
 };
 
-// --- KOMPONEN UTAMA ---
+// --- BAGIAN UTAMA WEBSITE ---
 export default function AboutSection() {
   const [expanded, setExpanded] = useState(0);
 
@@ -56,12 +56,8 @@ export default function AboutSection() {
 
   return (
     <section id="about" className="relative py-20 md:py-32 bg-muted/30 overflow-hidden">
-      
-      {/* Efek Bunga Sakura */}
       <SakuraFalling />
-
       <div className="container mx-auto px-4 relative z-10">
-        {/* Header Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -69,7 +65,7 @@ export default function AboutSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-primary font-medium mb-2 block text-pink-400">Tentang Saya</span>
+          <span className="text-pink-400 font-medium mb-2 block">Tentang Saya</span>
           <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">
             Mengenal Lebih Dekat
           </h2>
@@ -77,8 +73,6 @@ export default function AboutSection() {
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-          
-          {/* Left Side: Visual Image */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -100,9 +94,7 @@ export default function AboutSection() {
                   </motion.span>
                 </div>
               </motion.div>
-              
               <div className="absolute -inset-4 bg-pink-200/20 rounded-2xl blur-2xl -z-10 group-hover:bg-pink-200/30 transition-colors" />
-
               <motion.div 
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
@@ -115,7 +107,6 @@ export default function AboutSection() {
             </div>
           </motion.div>
 
-          {/* Right Side: Accordion & Stats */}
           <div className="space-y-8">
             <div className="space-y-4">
               {accordionData.map((item, index) => (
@@ -159,7 +150,6 @@ export default function AboutSection() {
               ))}
             </div>
 
-            {/* Stats Grid */}
             <div className="grid grid-cols-2 gap-4">
               {stats.map((stat, index) => (
                 <motion.div
