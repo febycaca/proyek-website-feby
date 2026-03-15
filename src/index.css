@@ -179,3 +179,31 @@
     }
   }
 }
+/* Tambahan untuk tema Sakura Feby */
+@layer utilities {
+  .sakura-glow {
+    filter: drop-shadow(0 0 10px hsla(330, 100%, 80%, 0.8));
+  }
+
+  /* Animasi khusus kelopak sakura supaya lebih natural */
+  .animate-sakura-fall {
+    animation: sakura-fall 10s linear infinite;
+  }
+
+  @keyframes sakura-fall {
+    0% {
+      transform: translateY(-10vh) translateX(0) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) translateX(50px) rotate(360deg);
+      opacity: 0;
+    }
+  }
+}
