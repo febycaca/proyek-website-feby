@@ -8,44 +8,43 @@ import Autoplay from 'embla-carousel-autoplay';
 const projects = [
   {
     title: 'Cahaya di Tirai Sakura',
-    description: 'perjalanan cinta dan perjuangan hidup seorang mahasiswa kedokteran bernama Tiara. Ia harus menghadapi dilema antara cinta, cita-cita, dan perbedaan budaya saat tinggal di negeri orang.',
+    description: 'perjalanan cinta dan perjuangan hidup seorang mahasiswa kedokteran bernama Tiara.',
     tags: ['Drama', 'Romansa'],
-    // 1. Pastikan file "book-1.jpg" ada di folder PUBLIC
     image: '/book-1.jpg', 
-    isEmoji: false, // Kita tambah penanda ini
+    isEmoji: false,
     color: 'from-pink-400/20 to-rose-400/20',
-    github: '#',
-    demo: '#',
+    github: '', // Kosongkan agar tombol hilang
+    demo: '#', // Isi dengan link asli
   },
   {
-    title: 'Learning Management',
-    description: 'Platform pembelajaran online dengan video streaming dan progress tracking.',
-    tags: ['Next.js', 'TypeScript', 'MongoDB'],
-    image: '📚',
-    isEmoji: true,
+    title: 'Mariposa 2',
+    description: 'Sequel dari karya sebelumnya dengan cerita yang lebih dalam dan karakter yang lebih berkembang.',
+    tags: ['Remaja', 'Romansa'],
+    image: '/book-2.jpg',
+    isEmoji: false,
     color: 'from-fuchsia-400/20 to-pink-400/20',
-    github: '#',
-    demo: '#',
+    github: '', 
+    demo: '', // Jika keduanya kosong, tidak ada tombol muncul
   },
   {
-    title: 'Social Dashboard',
-    description: 'Dashboard analytics untuk social media dengan real-time data visualization.',
-    tags: ['React', 'D3.js', 'Firebase'],
-    image: '📊',
-    isEmoji: true,
+    title: 'I Want To Eat Your Pancreas',
+    description: 'Kisah menyentuh tentang seorang siswa introvert dan teman sekelasnya yang menderita penyakit pankreas.',
+    tags: ['Drama', 'Romansa'],
+    image: '/book-3.jpg',
+    isEmoji: false,
     color: 'from-rose-400/20 to-orange-400/20',
-    github: '#',
-    demo: '#',
+    github: '',
+    demo: 'https://link-demo.com',
   },
   {
-    title: 'AI Content Generator',
-    description: 'Tool untuk generate konten menggunakan AI dengan integrasi berbagai model.',
-    tags: ['Python', 'FastAPI', 'OpenAI'],
-    image: '🤖',
-    isEmoji: true,
+    title: 'Anonymous Crush',
+    description: 'perjalanan Abeyla yang terjebak dalam hubungan rumit dengan teman anonymous chat-nya.',
+    tags: ['Fiksi remaja', 'Romansa'],
+    image: '/book-4.jpg',
+    isEmoji: false,
     color: 'from-pink-300/20 to-indigo-300/20',
-    github: '#',
-    demo: '#',
+    github: '',
+    demo: '',
   }
 ];
 
@@ -68,9 +67,7 @@ export default function ProjectsSection() {
           className="text-center mb-12"
         >
           <span className="text-pink-500 font-medium mb-2 block">Portfolio</span>
-          <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">
-            Projects & Karya
-          </h2>
+          <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">Projects & Karya</h2>
           <div className="w-20 h-1 bg-pink-500 mx-auto rounded-full" />
         </motion.div>
 
@@ -81,13 +78,12 @@ export default function ProjectsSection() {
                 <div key={project.title} className="flex-[0_0_100%] min-w-0 md:flex-[0_0_50%] lg:flex-[0_0_33.33%] px-3">
                   <div className="h-full p-6 glass rounded-2xl shadow-card border border-white/20 bg-white/10 backdrop-blur-sm transition-all duration-300">
                     
-                    {/* BAGIAN GAMBAR YANG DIPERBAIKI */}
                     <div className={`aspect-square rounded-xl mb-4 flex items-center justify-center bg-gradient-to-br ${project.color} overflow-hidden`}>
                       {project.isEmoji ? (
                         <span className="text-6xl">{project.image}</span>
                       ) : (
                         <img 
-                          src={project.image} 
+                          src={project.image}
                           alt={project.title} 
                           className="w-full h-full object-cover"
                         />
@@ -95,12 +91,8 @@ export default function ProjectsSection() {
                     </div>
                     
                     <div className="space-y-3 text-left">
-                      <h3 className="font-display text-lg font-bold text-pink-700">
-                        {project.title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground line-clamp-2">
-                        {project.description}
-                      </p>
+                      <h3 className="font-display text-lg font-bold text-pink-700">{project.title}</h3>
+                      <p className="text-sm text-muted-foreground line-clamp-2">{project.description}</p>
                       
                       <div className="flex flex-wrap gap-2">
                         {project.tags.slice(0, 3).map((tag) => (
@@ -110,14 +102,21 @@ export default function ProjectsSection() {
                         ))}
                       </div>
                       
+                      {/* LOGIKA TOMBOL OTOMATIS HILANG */}
                       <div className="flex gap-2 pt-2">
-                        <Button size="sm" variant="ghost" className="h-8 w-8 p-0 rounded-full bg-white/50" asChild>
-                          <a href={project.github}><Github className="h-4 w-4" /></a>
-                        </Button>
-                        <Button size="sm" className="h-8 rounded-full bg-pink-500 hover:bg-pink-600" asChild>
-                          <a href={project.demo} className="text-xs">Demo</a>
-                        </Button>
+                        {project.github && project.github !== '#' && (
+                          <Button size="sm" variant="ghost" className="h-8 w-8 p-0 rounded-full bg-white/50" asChild>
+                            <a href={project.github} target="_blank" rel="noreferrer"><Github className="h-4 w-4" /></a>
+                          </Button>
+                        )}
+                        
+                        {project.demo && project.demo !== '#' && (
+                          <Button size="sm" className="h-8 rounded-full bg-pink-500 hover:bg-pink-600" asChild>
+                            <a href={project.demo} target="_blank" rel="noreferrer" className="text-xs">Lihat Karya</a>
+                          </Button>
+                        )}
                       </div>
+
                     </div>
                   </div>
                 </div>
@@ -125,19 +124,12 @@ export default function ProjectsSection() {
             </div>
           </div>
 
-          <button 
-            onClick={scrollPrev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-md text-pink-500 hover:bg-pink-500 hover:text-white transition-all z-10"
-          >
+          <button onClick={scrollPrev} className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-md text-pink-500 z-10">
             <ChevronLeft size={24} />
           </button>
-          <button 
-            onClick={scrollNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-md text-pink-500 hover:bg-pink-500 hover:text-white transition-all z-10"
-          >
+          <button onClick={scrollNext} className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-md text-pink-500 z-10">
             <ChevronRight size={24} />
           </button>
-
         </div>
       </div>
     </section>
