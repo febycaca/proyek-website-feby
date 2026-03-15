@@ -51,7 +51,7 @@ const Index = () => {
       {/* Bagian Galeri Carousel */}
       <div className="container mx-auto px-4 py-10 text-center">
         <h2 className="text-3xl font-bold text-pink-600 mb-6 font-space">
-          Galeri Foto Kelas X-10
+          Aesthetic japanese vibes 🌸
         </h2>
         <Carousel />
       </div>
