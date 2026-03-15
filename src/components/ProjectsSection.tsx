@@ -67,7 +67,7 @@ export default function ProjectsSection() {
           className="text-center mb-12"
         >
           <span className="text-pink-500 font-medium mb-2 block">Library</span>
-          <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">Favorites Book</h2>
+          <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">Favorite Books</h2>
           <div className="w-20 h-1 bg-pink-500 mx-auto rounded-full" />
         </motion.div>
 
