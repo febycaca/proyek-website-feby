@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, Play, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Github, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
@@ -9,8 +9,10 @@ const projects = [
   {
     title: 'Cahaya di Tirai Sakura',
     description: 'perjalanan cinta dan perjuangan hidup seorang mahasiswa kedokteran bernama Tiara. Ia harus menghadapi dilema antara cinta, cita-cita, dan perbedaan budaya saat tinggal di negeri orang.',
-    tags: ['Drama', 'Romansa',],
-    image: '/book-1.jpg',
+    tags: ['Drama', 'Romansa'],
+    // 1. Pastikan file "book-1.jpg" ada di folder PUBLIC
+    image: '/book-1.jpg', 
+    isEmoji: false, // Kita tambah penanda ini
     color: 'from-pink-400/20 to-rose-400/20',
     github: '#',
     demo: '#',
@@ -20,6 +22,7 @@ const projects = [
     description: 'Platform pembelajaran online dengan video streaming dan progress tracking.',
     tags: ['Next.js', 'TypeScript', 'MongoDB'],
     image: '📚',
+    isEmoji: true,
     color: 'from-fuchsia-400/20 to-pink-400/20',
     github: '#',
     demo: '#',
@@ -29,6 +32,7 @@ const projects = [
     description: 'Dashboard analytics untuk social media dengan real-time data visualization.',
     tags: ['React', 'D3.js', 'Firebase'],
     image: '📊',
+    isEmoji: true,
     color: 'from-rose-400/20 to-orange-400/20',
     github: '#',
     demo: '#',
@@ -38,6 +42,7 @@ const projects = [
     description: 'Tool untuk generate konten menggunakan AI dengan integrasi berbagai model.',
     tags: ['Python', 'FastAPI', 'OpenAI'],
     image: '🤖',
+    isEmoji: true,
     color: 'from-pink-300/20 to-indigo-300/20',
     github: '#',
     demo: '#',
@@ -45,12 +50,10 @@ const projects = [
 ];
 
 export default function ProjectsSection() {
-  // 1. Setup Embla dengan Autoplay & Loop
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
     Autoplay({ delay: 3000, stopOnInteraction: false })
   ]);
 
-  // 2. Fungsi Navigasi Manual
   const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
 
@@ -58,7 +61,6 @@ export default function ProjectsSection() {
     <section id="projects" className="py-20 md:py-32 bg-muted/30 overflow-hidden">
       <div className="container mx-auto px-4">
         
-        {/* Header Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -72,17 +74,24 @@ export default function ProjectsSection() {
           <div className="w-20 h-1 bg-pink-500 mx-auto rounded-full" />
         </motion.div>
 
-        {/* Carousel Container */}
         <div className="relative max-w-5xl mx-auto px-12">
-          
-          {/* Viewport (Tempat gesernya) */}
           <div className="overflow-hidden cursor-grab active:cursor-grabbing" ref={emblaRef}>
             <div className="flex">
               {projects.map((project) => (
                 <div key={project.title} className="flex-[0_0_100%] min-w-0 md:flex-[0_0_50%] lg:flex-[0_0_33.33%] px-3">
                   <div className="h-full p-6 glass rounded-2xl shadow-card border border-white/20 bg-white/10 backdrop-blur-sm transition-all duration-300">
-                    <div className={`aspect-square rounded-xl mb-4 flex items-center justify-center bg-gradient-to-br ${project.color}`}>
-                      <span className="text-6xl">{project.image}</span>
+                    
+                    {/* BAGIAN GAMBAR YANG DIPERBAIKI */}
+                    <div className={`aspect-square rounded-xl mb-4 flex items-center justify-center bg-gradient-to-br ${project.color} overflow-hidden`}>
+                      {project.isEmoji ? (
+                        <span className="text-6xl">{project.image}</span>
+                      ) : (
+                        <img 
+                          src={project.image} 
+                          alt={project.title} 
+                          className="w-full h-full object-cover"
+                        />
+                      )}
                     </div>
                     
                     <div className="space-y-3 text-left">
@@ -116,7 +125,6 @@ export default function ProjectsSection() {
             </div>
           </div>
 
-          {/* Navigasi Manual (Tombol Kiri-Kanan) */}
           <button 
             onClick={scrollPrev}
             className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-md text-pink-500 hover:bg-pink-500 hover:text-white transition-all z-10"
