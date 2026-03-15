@@ -5,6 +5,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+// 1. KITA PANGGIL FILE AKADEMIK DI SINI
+import Akademik from "./Akademik"; 
 
 const queryClient = new QueryClient();
 
@@ -16,6 +18,10 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          
+          {/* 2. KITA TAMBAHKAN ALAMAT UNTUK LAMAN AKADEMIK DI SINI */}
+          <Route path="/akademik" element={<Akademik />} />
+
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
