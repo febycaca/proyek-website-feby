@@ -34,7 +34,7 @@ const projects = [
     isEmoji: false,
     color: 'from-rose-400/20 to-orange-400/20',
     github: '',
-    demo: 'https://link-demo.com',
+    demo: '',
   },
   {
     title: 'Anonymous Crush',
@@ -66,8 +66,8 @@ export default function ProjectsSection() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <span className="text-pink-500 font-medium mb-2 block">Portfolio</span>
-          <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">Projects & Karya</h2>
+          <span className="text-pink-500 font-medium mb-2 block">Library</span>
+          <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">Favorites Book</h2>
           <div className="w-20 h-1 bg-pink-500 mx-auto rounded-full" />
         </motion.div>
 
