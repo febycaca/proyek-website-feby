@@ -22,10 +22,10 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
 
   const navItems = [
     { label: 'Home', href: '#home' },
-    { label: 'About', href: '#about' },
-    { label: 'Skills', href: '#skills' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'About me', href: '#about' },
+    { label: 'Akademik', href: '#skills' },
+    { label: 'Library', href: '#projects' },
+    { label: 'kontak', href: '#contact' },
   ];
 
   const scrollToSection = (href: string) => {
