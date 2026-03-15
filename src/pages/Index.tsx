@@ -8,15 +8,15 @@ import CertificatesSection from '@/components/CertificatesSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import { motion } from "framer-motion";
+import Carousel from "@/components/Carousel"; // Pastikan jalurnya benar
 
 const Index = () => {
-  const [isDark, setIsDark] = useState(() => {
-    if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('theme');
-      return saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches);
-    }
-    return false;
-  });
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') setIsDark(true);
+  }, []);
 
   useEffect(() => {
     if (isDark) {
@@ -31,24 +31,31 @@ const Index = () => {
   const toggleTheme = () => setIsDark(!isDark);
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
-    {/* Ini kode simpel, kalau ini gak jalan berarti Framer Motion belum terinstal */}
-<motion.div
-  animate={{ y: [0, -20, 0] }}
-  transition={{ duration: 3, repeat: Infinity }}
-  style={{ 
-    position: 'fixed', 
-    top: '20%', 
-    right: '10%', 
-    fontSize: '50px', 
-    zIndex: 9999 
-  }}
->
-  🌸
-</motion.div>
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+      
+      {/* Animasi Sakura Melayang */}
+      <motion.div
+        animate={{ y: [0, -20, 0] }}
+        transition={{ duration: 3, repeat: Infinity }}
+        className="fixed top-20 right-10 text-5xl z-50 pointer-events-none"
+      >
+        🌸
+      </motion.div>
+
       <Navbar isDark={isDark} toggleTheme={toggleTheme} />
+      
       <HeroSection />
+      
       <AboutSection />
+
+      {/* Bagian Galeri Carousel */}
+      <div className="container mx-auto px-4 py-10 text-center">
+        <h2 className="text-3xl font-bold text-pink-600 mb-6 font-space">
+          Galeri Foto Kelas X-10
+        </h2>
+        <Carousel />
+      </div>
+
       <SkillsSection />
       <ProjectsSection />
       <CertificatesSection />
