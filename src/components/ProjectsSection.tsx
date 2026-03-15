@@ -10,7 +10,7 @@ const projects = [
     title: 'Cahaya di Tirai Sakura',
     description: 'perjalanan cinta dan perjuangan hidup seorang mahasiswa kedokteran bernama Tiara. Ia harus menghadapi dilema antara cinta, cita-cita, dan perbedaan budaya saat tinggal di negeri orang.',
     tags: ['Drama', 'Romansa',],
-    image: './book 1.jpg',
+    image: './ cahaya-di-tirai-sakura.jpg',
     color: 'from-pink-400/20 to-rose-400/20',
     github: '#',
     demo: '#',
