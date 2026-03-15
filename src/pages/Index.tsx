@@ -7,6 +7,7 @@ import ProjectsSection from '@/components/ProjectsSection';
 import CertificatesSection from '@/components/CertificatesSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
+import { motion } from "framer-motion";
 
 const Index = () => {
   const [isDark, setIsDark] = useState(() => {
@@ -31,6 +32,20 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+    {/* Ini kode simpel, kalau ini gak jalan berarti Framer Motion belum terinstal */}
+<motion.div
+  animate={{ y: [0, -20, 0] }}
+  transition={{ duration: 3, repeat: Infinity }}
+  style={{ 
+    position: 'fixed', 
+    top: '20%', 
+    right: '10%', 
+    fontSize: '50px', 
+    zIndex: 9999 
+  }}
+>
+  🌸
+</motion.div>
       <Navbar isDark={isDark} toggleTheme={toggleTheme} />
       <HeroSection />
       <AboutSection />
