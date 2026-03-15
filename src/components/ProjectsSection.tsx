@@ -20,7 +20,7 @@ const projects = [
     title: 'Mariposa 2',
     description: 'Sequel dari karya sebelumnya dengan cerita yang lebih dalam dan karakter yang lebih berkembang.',
     tags: ['Remaja', 'Romansa'],
-    image: '/book-2.jpg',
+    image: '/book-2.avif',
     isEmoji: false,
     color: 'from-fuchsia-400/20 to-pink-400/20',
     github: '', 

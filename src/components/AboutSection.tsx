@@ -110,7 +110,7 @@ export default function AboutSection() {
                 className="aspect-square rounded-2xl overflow-hidden shadow-card relative z-10 border-4 border-white bg-white p-2"
               >
                 <div className="w-full h-full rounded-xl bg-gradient-to-br from-pink-50 to-pink-100 flex items-center justify-center">
-                  <span className="text-8xl">👨‍💻</span>
+                  <span className="text-8xl">c:\Users\Lenovo\Downloads\imgonline-com-ua-Color-filter-NJGDPJYhuPOl.jpg.jpeg</span>
                 </div>
               </motion.div>
               <div className="absolute -inset-4 bg-pink-200/50 rounded-2xl blur-2xl -z-10" />
