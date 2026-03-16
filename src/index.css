@@ -215,3 +215,32 @@
     }
   }
 }
+/* --- CUSTOM SCROLLBAR SAKURA SOFT --- */
+
+/* 1. Atur lebar scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* 2. Atur latar belakang jalur scrollbar */
+::-webkit-scrollbar-track {
+  background: #fff5f8; /* Pink super soft biar gak kontras */
+}
+
+/* 3. Atur bagian batang scroll yang bisa digeser */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #fbcfe8 0%, #ec4899 100%); /* Gradient pink cantik */
+  border-radius: 10px;
+  border: 2px solid #fff5f8; /* Kasih jarak biar keliatan mengambang */
+}
+
+/* 4. Efek saat kursor hover ke scrollbar */
+::-webkit-scrollbar-thumb:hover {
+  background: #db2777; /* Pink agak tua pas disentuh */
+}
+
+/* Untuk Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #fbcfe8 #fff5f8;
+}
