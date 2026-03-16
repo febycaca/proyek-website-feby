@@ -108,7 +108,7 @@ export default function AboutSection() {
                   {/*pict.jpeg*/}
                   <img 
                     src="/foto-feby.jpg" 
-                    alt="/pict.jpeg" 
+                    alt="D:\Feby Calista Balqis X-10\proyek-website-feby\public\pict.jpeg" 
                     className="w-full h-full object-cover"
                   />
                 </div>
