@@ -102,15 +102,24 @@
 @layer base {
   * {
     @apply border-border;
+    /* 🌸 Tambahkan ini supaya kursor asli hilang di semua elemen */
+    cursor: none !important;
   }
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-family: 'Inter', sans-serif;
+    /* 🌸 Pastikan kursor asli hilang di body */
+    cursor: none !important;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Space Grotesk', sans-serif;
+  }
+
+  /* 🌸 Pastikan link dan tombol juga tidak memunculkan kursor panah asli */
+  a, button, input, textarea {
+    cursor: none !important;
   }
 }
 
