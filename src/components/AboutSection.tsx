@@ -105,10 +105,10 @@ export default function AboutSection() {
                 className="aspect-square rounded-2xl overflow-hidden shadow-xl relative z-10 border-4 border-white bg-white p-2"
               >
                 <div className="w-full h-full rounded-xl overflow-hidden bg-pink-50">
-                  {/*pict.jpeg */}
+                  {/*pict.jpeg*/}
                   <img 
                     src="/foto-feby.jpg" 
-                    alt="Feby Calista Balqis" 
+                    alt="/pict.jpeg" 
                     className="w-full h-full object-cover"
                   />
                 </div>
