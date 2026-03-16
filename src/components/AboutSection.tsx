@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Code2, Video, ChevronDown, Flower } from 'lucide-react'; // Pastikan ada Flower di sini
+import { Code2, Video, ChevronDown, Flower } from 'lucide-react';
 
 // --- KOMPONEN SAKURA ---
 const SakuraFalling = () => {
@@ -53,11 +53,6 @@ const JapaneseDecorations = () => {
 export default function AboutSection() {
   const [expanded, setExpanded] = useState(0);
 
-  const stats = [
-    { icon: Code2, value: '33+', label: 'Buku Selesai Dibaca' },
-    { icon: Video, value: '', label: '' },
-  ];
-
   const accordionData = [
     {
       title: "Passionate Developer",
@@ -107,10 +102,15 @@ export default function AboutSection() {
             <div className="relative group">
               <motion.div 
                 whileHover={{ scale: 1.02, rotate: -1 }}
-                className="aspect-square rounded-2xl overflow-hidden shadow-card relative z-10 border-4 border-white bg-white p-2"
+                className="aspect-square rounded-2xl overflow-hidden shadow-xl relative z-10 border-4 border-white bg-white p-2"
               >
-                <div className="w-full h-full rounded-xl bg-gradient-to-br from-pink-50 to-pink-100 flex items-center justify-center">
-                  <span className="text-8xl">c:/pict.jpeg</span>
+                <div className="w-full h-full rounded-xl overflow-hidden bg-pink-50">
+                  {/*pict.jpeg */}
+                  <img 
+                    src="/foto-feby.jpg" 
+                    alt="Feby Calista Balqis" 
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </motion.div>
               <div className="absolute -inset-4 bg-pink-200/50 rounded-2xl blur-2xl -z-10" />
