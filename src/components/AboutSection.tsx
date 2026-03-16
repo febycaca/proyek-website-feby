@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Code2, Video, ChevronDown, Flower } from 'lucide-react';
 
-// --- KOMPONEN SAKURA ---
 const SakuraFalling = () => {
   const petals = Array.from({ length: 15 });
   return (
@@ -30,7 +29,6 @@ const SakuraFalling = () => {
   );
 };
 
-// --- KOMPONEN HIASAN JEPANG ---
 const JapaneseDecorations = () => {
   return (
     <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
@@ -56,9 +54,9 @@ export default function AboutSection() {
   const accordionData = [
     {
       title: "Passionate Developer",
-      content: "Halo! Saya Feby. Pelajar yang punya ketertarikan besar di dunia web. Fokus saya sederhana: bikin website yang nggak cuma enak dilihat, tapi juga asyik buat digunain dan disukai oleh berbagai kalangan orang. Yuk, lihat apa yang baru saja saya buat!",
+      content: "Halo! Saya Feby. Pelajar yang punya ketertarikan besar di dunia web. Fokus saya sederhana: bikin website yang nggak cuma enak dilihat, tapi juga asyik buat digunain dan disukai oleh berbagai kalangan orang.",
       content2: "Bagi saya, coding adalah soal memecahkan masalah dengan logika yang rapi dan visual yang pas. Di dalam portofolio ini, setiap proyek adalah hasil eksperimen saya dengan teknologi baru.",
-      content3: "Mulai dari struktur kode yang efisien sampai detail ikonografi bunga sakura yang mempercantik tampilan. Saya senang membangun sesuatu yang fungsional sekaligus nyaman dipandang."
+      content3: "Mulai dari struktur kode yang efisien sampai detail ikonografi bunga sakura yang mempercantik tampilan."
     },
     {
       title: "Hobby",
@@ -104,11 +102,10 @@ export default function AboutSection() {
                 whileHover={{ scale: 1.02, rotate: -1 }}
                 className="aspect-square rounded-2xl overflow-hidden shadow-xl relative z-10 border-4 border-white bg-white p-2"
               >
-                <div className="w-full h-full rounded-xl overflow-hidden bg-pink-50">
-                  {/*pict.jpeg*/}
+                <div className="w-full h-full rounded-xl overflow-hidden bg-pink-50 flex items-center justify-center">
                   <img 
-                    src="/foto-feby.jpg" 
-                    alt="D:\Feby Calista Balqis X-10\proyek-website-feby\public\pict.jpeg" 
+                    src="/pict.jpeg" 
+                    alt="Feby Calista Balqis" 
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -122,7 +119,7 @@ export default function AboutSection() {
               {accordionData.map((item, index) => (
                 <motion.div
                   key={index}
-                  className="border border-pink-100 rounded-xl overflow-hidden bg-white/60 backdrop-blur-sm"
+                  className="border border-pink-100 rounded-xl overflow-hidden bg-white/60 backdrop-blur-sm shadow-sm"
                 >
                   <button
                     onClick={() => setExpanded(expanded === index ? -1 : index)}
@@ -140,7 +137,7 @@ export default function AboutSection() {
                       >
                         <div className="p-4 pt-0 text-gray-600 text-sm md:text-base border-t border-pink-50">
                           <p>{item.content}</p>
-                          <p className="mt-2">{item.content2}</p>
+                          <p className="mt-2 font-medium">{item.content2}</p>
                           <p className="mt-2">{item.content3}</p>
                         </div>
                       </motion.div>
