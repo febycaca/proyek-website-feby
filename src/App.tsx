@@ -8,8 +8,6 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Index from "./pages/Index";
 import Akademik from "./Akademik";
 import LoadingScreen from "./components/LoadingScreen"; 
-import TranslateButton from "./components/TranslateButton"; // 🌸 Pastikan import ini ada
-
 const queryClient = new QueryClient();
 
 const App = () => {
@@ -30,7 +28,6 @@ const App = () => {
         <Sonner />
         
         {/* Fitur Auto Translate melayang di pojok */}
-        {!isLoading && <TranslateButton />}
 
         <AnimatePresence mode="wait">
           {isLoading && <LoadingScreen key="loader" />}
