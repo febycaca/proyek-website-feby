@@ -54,8 +54,8 @@ export default function AboutSection() {
   const [expanded, setExpanded] = useState(0);
 
   const stats = [
-    { icon: Code2, value: '50+', label: 'Projects Selesai' },
-    { icon: Video, value: '100+', label: 'Video Konten' },
+    { icon: Code2, value: '33+', label: 'Buku Selesai Dibaca' },
+    { icon: Video, value: '', label: '' },
   ];
 
   const accordionData = [
@@ -88,7 +88,7 @@ export default function AboutSection() {
         >
           <span className="text-pink-500 font-medium mb-2 block tracking-widest text-sm uppercase">About Me / アバウトミー</span>
           <h2 className="font-display text-3xl md:text-5xl font-bold mb-4 text-gray-800">
-            Mengenal Lebih Dekat
+            This is me!
           </h2>
           <div className="flex justify-center items-center gap-2">
             <div className="w-16 h-1 bg-pink-300 rounded-full" />
@@ -110,7 +110,7 @@ export default function AboutSection() {
                 className="aspect-square rounded-2xl overflow-hidden shadow-card relative z-10 border-4 border-white bg-white p-2"
               >
                 <div className="w-full h-full rounded-xl bg-gradient-to-br from-pink-50 to-pink-100 flex items-center justify-center">
-                  <span className="text-8xl">c:\imgonline-com-ua-Color-filter-NJGDPJYhuPOl.jpg.jpeg</span>
+                  <span className="text-8xl">c:/pict.jpeg</span>
                 </div>
               </motion.div>
               <div className="absolute -inset-4 bg-pink-200/50 rounded-2xl blur-2xl -z-10" />
