@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowDown, Github, Linkedin, Youtube, Instagram } from 'lucide-react';
+import { ArrowDown, Github, Linkedin, Youtube, Instagram, Flower } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ThreeScene from './ThreeScene';
 
@@ -19,36 +19,62 @@ export default function HeroSection() {
   ];
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#fff5f7]">
       {/* Background 3D tetap di belakang */}
       <ThreeScene />
       
       <div className="container mx-auto px-4 relative z-10">
-        {/* Menggunakan Grid: 1 kolom di HP, 2 kolom di Layar Besar (Desktop) */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
           
-          {/* SISI KIRI: Bagian Foto */}
+          {/* SISI KIRI: Bagian Foto Profil (ALAMAT SUDAH BALIK KE AWAL) */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="flex-shrink-0"
+            className="flex-shrink-0 flex justify-center lg:justify-start"
           >
             <div className="relative group">
-              {/* Efek Cahaya di belakang foto */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-primary to-purple-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+              {/* Efek Cahaya Soft Pink */}
+              <div className="absolute -inset-6 bg-pink-200/40 rounded-full blur-3xl opacity-100 transition-opacity"></div>
               
-              <div className="relative w-64 h-80 md:w-80 md:h-[450px] overflow-hidden rounded-2xl glass border-2 border-white/10 shadow-2xl">
-                <img 
-                  src="WhatsApp Image 2026-03-13 at 12.59.08.jpeg"
-                  alt="Feby Calista Balqis"
-                  className="w-4 h-64 md:w-80 md:h-80 object-cover rounded-full border-4 border-primary shadow-glow"
-                />
+              {/* Bingkai Putus-putus berputar */}
+              <motion.div 
+                animate={{ rotate: 360 }}
+                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                className="absolute -inset-4 border-2 border-dashed border-pink-300/40 rounded-2xl"
+              />
+
+              <div className="relative">
+                {/* Bunga Sakura Melayang */}
+                <motion.div 
+                  animate={{ y: [0, -10, 0], rotate: [0, 15, 0] }}
+                  transition={{ duration: 4, repeat: Infinity }}
+                  className="absolute -top-6 -right-6 z-20 bg-white p-2 rounded-full shadow-lg border border-pink-100"
+                >
+                  <Flower className="w-6 h-6 text-pink-400" />
+                </motion.div>
+
+                {/* KOTAK FOTO - ALAMAT FILENYA SUDAH BALIK SEPERTI SEMULA */}
+                <div className="relative w-64 h-80 md:w-80 md:h-[450px] overflow-hidden rounded-2xl glass border-2 border-white/40 shadow-2xl z-10">
+                  <img 
+                    src="/WhatsApp Image 2026-03-13 at 12.59.08.jpeg" 
+                    alt="Feby Calista Balqis"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+
+                <motion.div 
+                  animate={{ scale: [1, 1.2, 1] }}
+                  transition={{ duration: 3, repeat: Infinity, delay: 1 }}
+                  className="absolute -bottom-4 -left-4 z-20 bg-white/90 p-1.5 rounded-full shadow-md border border-pink-50"
+                >
+                  <Flower className="w-4 h-4 text-pink-300" />
+                </motion.div>
               </div>
             </div>
           </motion.div>
 
-          {/* SISI KANAN: Bagian Teks (Aslinya dari kode kamu) */}
+          {/* SISI KANAN: Bagian Teks (Tetap Sama) */}
           <div className="text-center lg:text-left">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -56,46 +82,32 @@ export default function HeroSection() {
               transition={{ duration: 0.8 }}
             >
               <motion.span 
-                className="inline-block px-4 py-2 rounded-full glass text-sm font-medium text-primary mb-6"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.2 }}
+                className="inline-block px-4 py-2 rounded-full glass text-sm font-medium text-pink-600 mb-6 border border-pink-100"
               >
-                👋 welcome!
+                🌸 welcome!
               </motion.span>
             </motion.div>
 
             <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
+              className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-gray-800"
             >
               Feby Calista Balqis
               <br />
-              <span className="text-gradient"> Portofolio</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-500"> Portofolio</span>
             </motion.h1>
 
             <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto lg:mx-0"
+              className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto lg:mx-0"
             >
               Saya buat website ini untuk memenuhi tugas coding class X-10. 
-              Semoga bermanfaat untuk kita semua.
+              Semoga bermanfaat untuk kita semua. ✨
             </motion.p>
 
             {/* Tombol Aksi */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
-              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-12"
-            >
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-12">
               <Button 
                 size="lg" 
-                className="rounded-full px-8 shadow-glow"
+                className="rounded-full px-8 bg-pink-500 hover:bg-pink-600 shadow-lg shadow-pink-200"
                 onClick={() => {
                   const element = document.querySelector('#projects');
                   if (element) element.scrollIntoView({ behavior: 'smooth' });
@@ -106,7 +118,7 @@ export default function HeroSection() {
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="rounded-full px-8"
+                className="rounded-full px-8 border-pink-200 text-pink-500"
                 onClick={() => {
                   const element = document.querySelector('#contact');
                   if (element) element.scrollIntoView({ behavior: 'smooth' });
@@ -114,42 +126,32 @@ export default function HeroSection() {
               >
                 Let's be friends
               </Button>
-            </motion.div>
+            </div>
 
-            {/* Social Media Icons */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.9 }}
-              className="flex items-center justify-center lg:justify-start gap-6"
-            >
+            {/* Social Icons */}
+            <div className="flex items-center justify-center lg:justify-start gap-6">
               {socialLinks.map((social, index) => (
                 <motion.a
                   key={index}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 rounded-full glass hover:shadow-glow transition-all duration-300"
+                  className="p-3 rounded-full glass border border-pink-50"
                   whileHover={{ scale: 1.1, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  aria-label={social.label}
                 >
-                  <social.icon className="h-5 w-5 text-foreground" />
+                  <social.icon className="h-5 w-5 text-pink-500" />
                 </motion.a>
               ))}
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Tombol Scroll Down */}
       <motion.button
         onClick={scrollToAbout}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 p-3 rounded-full glass animate-float cursor-pointer z-20"
-        whileHover={{ scale: 1.1 }}
-        aria-label="Scroll to About"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 p-3 rounded-full glass border border-pink-100"
       >
-        <ArrowDown className="h-5 w-5 text-primary" />
+        <ArrowDown className="h-5 w-5 text-pink-500" />
       </motion.button>
     </section>
   );
