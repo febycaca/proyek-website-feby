@@ -36,7 +36,7 @@ const moodItems = [
     id: 4,
     title: 'myself',
     description: 'Selfie time.',
-    image: 'ME.jpg',
+    image: 'ME.jpeg',
     color: 'from-rose-100 to-pink-200',
     rotation: '-rotate-2',
     icon: <Palette className="h-4 w-4" />,
