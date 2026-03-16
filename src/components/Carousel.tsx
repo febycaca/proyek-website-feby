@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const slides = [
-  { id: 1, title: "pinky sakura", img: "https://images.unsplash.com/photo-1522383225653-ed111181a951?q=80&w=800" },
+  { id: 1, title: "sakura flower", img: "https://images.unsplash.com/photo-1522383225653-ed111181a951?q=80&w=800" },
   { id: 2, title: "Japan view", img: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=800" },
   { id: 3, title: "Sakura Vibes", img: "https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?q=80&w=800" },
 ];

@@ -22,7 +22,7 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
 
   const navItems = [
     { label: 'Home', href: '#home' },
-    { label: 'About me', href: '#about' },
+    { label: 'About Me', href: '#about' },
     { label: 'Akademik', href: '#skills' },
     { label: 'Library', href: '#projects' },
     { label: 'kontak', href: '#contact' },

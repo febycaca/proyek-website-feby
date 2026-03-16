@@ -1,125 +1,156 @@
 import { motion } from 'framer-motion';
-import { Award, ExternalLink, Calendar } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Heart, Camera, Sparkles, Sun, Coffee, Flower2, Moon, Palette } from 'lucide-react';
 
-const certificates = [
+const moodItems = [
   {
-    title: 'AWS Certified Solutions Architect',
-    issuer: 'Amazon Web Services',
-    date: '2024',
-    credentialId: 'AWS-SAA-123456',
-    image: '🏆',
-    color: 'from-orange-500/20 to-yellow-500/20',
-    link: '#',
+    id: 1,
+    title: 'Meow',
+    description: 'I love cat.',
+    image: 'gambar1.jpg',
+    color: 'from-pink-200 to-rose-100',
+    rotation: '-rotate-3',
+    icon: <Flower2 className="h-4 w-4" />,
+    tapeColor: 'bg-pink-200/40'
   },
   {
-    title: 'Google Professional Cloud Developer',
-    issuer: 'Google Cloud',
-    date: '2023',
-    credentialId: 'GCP-PCD-789012',
-    image: '☁️',
-    color: 'from-blue-500/20 to-cyan-500/20',
-    link: '#',
+    id: 2,
+    title: 'Morning Latte',
+    description: 'Aroma kopi di pagi hari.',
+    image: '',
+    color: 'from-orange-100 to-rose-100',
+    rotation: 'rotate-2',
+    icon: <Coffee className="h-4 w-4" />,
+    tapeColor: 'bg-rose-200/40'
   },
   {
-    title: 'Meta Front-End Developer',
-    issuer: 'Meta (Coursera)',
-    date: '2023',
-    credentialId: 'META-FE-345678',
-    image: '⚛️',
-    color: 'from-blue-600/20 to-indigo-500/20',
-    link: '#',
+    id: 3,
+    title: 'Strawberry Sky',
+    description: 'Langit sore yang manis.',
+    image: '',
+    color: 'from-pink-300 to-fuchsia-100',
+    rotation: 'rotate-1',
+    icon: <Sun className="h-4 w-4" />,
+    tapeColor: 'bg-fuchsia-200/40'
   },
   {
-    title: 'MongoDB Certified Developer',
-    issuer: 'MongoDB University',
-    date: '2023',
-    credentialId: 'MDB-DEV-901234',
-    image: '🍃',
-    color: 'from-green-500/20 to-emerald-500/20',
-    link: '#',
+    id: 4,
+    title: 'Sweet Treats',
+    description: 'Self-reward hari ini.',
+    image: '',
+    color: 'from-rose-100 to-pink-200',
+    rotation: '-rotate-2',
+    icon: <Palette className="h-4 w-4" />,
+    tapeColor: 'bg-pink-300/40'
   },
   {
-    title: 'Certified Kubernetes Administrator',
-    issuer: 'CNCF',
-    date: '2022',
-    credentialId: 'CKA-567890',
-    image: '⚙️',
-    color: 'from-indigo-500/20 to-purple-500/20',
-    link: '#',
+    id: 5,
+    title: 'Evening Calm',
+    description: 'Waktunya beristirahat.',
+    image: '',
+    color: 'from-indigo-100 to-pink-100',
+    rotation: 'rotate-3',
+    icon: <Moon className="h-4 w-4" />,
+    tapeColor: 'bg-indigo-200/40'
   },
   {
-    title: 'Professional Scrum Master I',
-    issuer: 'Scrum.org',
-    date: '2022',
-    credentialId: 'PSM-I-234567',
-    image: '📋',
-    color: 'from-teal-500/20 to-cyan-500/20',
-    link: '#',
+    id: 6,
+    title: 'Dreamy Vibe',
+    description: 'Hanyut dalam imajinasi.',
+    image: '',
+    color: 'from-pink-100 to-rose-200',
+    rotation: '-rotate-1',
+    icon: <Sparkles className="h-4 w-4" />,
+    tapeColor: 'bg-rose-100/40'
+  },
+  {
+    id: 7,
+    title: 'Pink Architecture',
+    description: 'Sudut kota yang cantik.',
+    image: '',
+    color: 'from-rose-200 to-pink-300',
+    rotation: 'rotate-2',
+    icon: <Camera className="h-4 w-4" />,
+    tapeColor: 'bg-pink-200/60'
+  },
+  {
+    id: 8,
+    title: 'Art Journal',
+    description: 'Menulis cerita setiap hari.',
+    image: '',
+    color: 'from-fuchsia-100 to-rose-100',
+    rotation: '-rotate-3',
+    icon: <Heart className="h-4 w-4" />,
+    tapeColor: 'bg-fuchsia-100/50'
   },
 ];
 
-export default function CertificatesSection() {
+export default function SakuraMoodboard() {
   return (
-    <section id="certificates" className="py-20 md:py-32">
+    <section id="moodboard" className="py-20 bg-[#fff9fa] overflow-hidden">
       <div className="container mx-auto px-4">
+        {/* Judul Estetik */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <span className="text-primary font-medium mb-2 block">Kredensial</span>
-          <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">
-            Sertifikat &amp; Lisensi
+          <div className="flex justify-center items-center gap-3 mb-3 text-pink-400">
+            <Sparkles className="animate-pulse" />
+            <span className="font-medium tracking-[0.3em] uppercase text-xs">Aesthetic Collection</span>
+            <Sparkles className="animate-pulse" />
+          </div>
+          <h2 className="text-4xl md:text-6xl font-bold text-rose-900 mb-4 tracking-tight">
+            my random moods
           </h2>
-          <div className="w-20 h-1 bg-primary mx-auto rounded-full" />
+          <p className="text-rose-400 font-serif italic">"Cherry blossoms and sweet memories"</p>
+          <div className="w-16 h-1 bg-pink-200 mx-auto rounded-full mt-6" />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-          {certificates.map((cert, index) => (
+        {/* Grid Papan Kreasi */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 max-w-7xl mx-auto">
+          {moodItems.map((item, index) => (
             <motion.div
-              key={cert.title}
-              initial={{ opacity: 0, y: 30 }}
+              key={item.id}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group"
+              whileHover={{ 
+                scale: 1.05, 
+                rotate: 0, 
+                zIndex: 20,
+                transition: { duration: 0.2 } 
+              }}
+              className={`relative p-3 bg-white shadow-[0_10px_30px_-15px_rgba(251,182,206,0.5)] rounded-sm transition-all ${item.rotation} border-b-[30px] border-white`}
             >
-              <div className="h-full p-6 glass rounded-2xl shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-2">
-                <div className={`w-16 h-16 rounded-xl mb-4 flex items-center justify-center bg-gradient-to-br ${cert.color}`}>
-                  <span className="text-3xl">{cert.image}</span>
+              {/* Tape Dekoratif */}
+              <div className={`absolute -top-4 left-1/2 -translate-x-1/2 w-20 h-7 ${item.tapeColor} backdrop-blur-[2px] -rotate-2 z-30 shadow-sm border-x border-white/20`} />
+              
+              {/* Frame Foto */}
+              <div className="relative aspect-[4/5] overflow-hidden bg-gray-100">
+                <div className={`absolute inset-0 bg-gradient-to-tr ${item.color} opacity-30 mix-blend-overlay z-10`} />
+                <img 
+                  src={item.image} 
+                  alt={item.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute bottom-2 right-2 z-20">
+                  <Heart className="h-5 w-5 text-white/80 fill-rose-400/40" />
                 </div>
-                
-                <div className="space-y-3">
-                  <div className="flex items-start gap-2">
-                    <Award className="h-5 w-5 text-primary mt-0.5 shrink-0" />
-                    <h3 className="font-display text-lg font-bold group-hover:text-primary transition-colors">
-                      {cert.title}
-                    </h3>
-                  </div>
-                  
-                  <p className="text-sm text-muted-foreground">
-                    {cert.issuer}
-                  </p>
-                  
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Calendar className="h-4 w-4" />
-                    <span>{cert.date}</span>
-                  </div>
-                  
-                  <p className="text-xs text-muted-foreground/70 font-mono">
-                    ID: {cert.credentialId}
-                  </p>
-                  
-                  <Button variant="outline" size="sm" className="rounded-full mt-2" asChild>
-                    <a href={cert.link} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="h-4 w-4 mr-1" />
-                      Verifikasi
-                    </a>
-                  </Button>
+              </div>
+              
+              {/* Keterangan */}
+              <div className="mt-4 px-1 text-left">
+                <div className="flex items-center gap-2 text-rose-800 mb-1">
+                  {item.icon}
+                  <h3 className="text-sm font-bold tracking-wide uppercase">
+                    {item.title}
+                  </h3>
                 </div>
+                <p className="text-[11px] leading-relaxed text-rose-400/80 font-medium font-mono">
+                  {item.description}
+                </p>
               </div>
             </motion.div>
           ))}
