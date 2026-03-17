@@ -129,7 +129,7 @@ export default function AboutSection() {
                 <AccordionContent className="text-rose-900/70 dark:text-pink-200/70 leading-relaxed text-base space-y-4">
                   <p>Halo! Saya Feby. Pelajar yang punya ketertarikan besar di dunia web. Fokus saya sederhana: bikin website yang nggak cuma enak dilihat, tapi juga asyik buat digunain.</p>
                   <p className="font-medium italic text-pink-500">Coding adalah soal memecahkan masalah dengan logika yang rapi dan visual yang pas.</p>
-                  <p>Di portofolio ini, setiap proyek adalah hasil eksperimen saya dengan teknologi baru, mulai dari struktur kode sampai detail sakura yang kamu lihat.</p>
+                  <p>Di portofolio ini, setiap proyek adalah hasil eksperimen saya dengan teknologi baru, mulai dari struktur kode sampai detail sakuranya juga.</p>
                 </AccordionContent>
               </AccordionItem>
 
@@ -149,7 +149,7 @@ export default function AboutSection() {
                     <Sparkles className="w-4 h-4" />
                     <p>Mimpi saya adalah menerbitkan buku sendiri suatu hari nanti.</p>
                   </div>
-                  <p>Saya bercita-cita membuat website perbukuan gratis agar semua orang bisa membaca tanpa terkendala biaya.</p>
+                  <p>Saya juga bercita-cita membuat website perbukuan gratis agar semua orang bisa membaca tanpa terkendala biaya.</p>
                 </AccordionContent>
               </AccordionItem>
 
