@@ -11,17 +11,12 @@ import { motion } from "framer-motion";
 import Carousel from "@/components/Carousel"; 
 
 const Index = () => {
-  // 🌙 Biarkan tetap 'true' jika kamu ingin defaultnya mode gelap yang estetik
   const [isDark, setIsDark] = useState(true);
   const [mousePos, setMousePos] = useState({ x: 0 });
 
   useEffect(() => {
     const saved = localStorage.getItem('theme');
-    if (saved === 'dark') {
-      setIsDark(true);
-    } else if (saved === 'light') {
-      setIsDark(false);
-    }
+    if (saved === 'dark') setIsDark(true);
 
     const handleMouseMove = (e: MouseEvent) => {
       setMousePos({ x: (e.clientX / window.innerWidth) * 2 - 1 });
@@ -34,20 +29,22 @@ const Index = () => {
   useEffect(() => {
     if (isDark) {
       document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
     } else {
       document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
     }
   }, [isDark]);
+
+  // Fungsi ini tetap harus ada supaya Navbar nggak error
+  const toggleTheme = () => setIsDark(!isDark);
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       
-      {/* 🌸 Bunga Sakura Interaktif (Tetap Ada) */}
+      {/* 🌸 Bunga Sakura Interaktif */}
       <motion.div
-        animate={{ 
-          y: [0, -20, 0],
-          x: mousePos.x * -30 
-        }}
+        animate={{ y: [0, -20, 0], x: mousePos.x * -30 }}
         transition={{ 
           y: { duration: 3, repeat: Infinity, ease: "easeInOut" },
           x: { type: "spring", stiffness: 50, damping: 20 } 
@@ -58,10 +55,7 @@ const Index = () => {
       </motion.div>
 
       <motion.div
-        animate={{ 
-          y: [0, 15, 0],
-          x: mousePos.x * -50 
-        }}
+        animate={{ y: [0, 15, 0], x: mousePos.x * -50 }}
         transition={{ 
           y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
           x: { type: "spring", stiffness: 40, damping: 25 } 
@@ -71,21 +65,8 @@ const Index = () => {
         🌸
       </motion.div>
 
-      <motion.div
-        animate={{ 
-          y: [0, -10, 0],
-          x: mousePos.x * -20 
-        }}
-        transition={{ 
-          y: { duration: 5, repeat: Infinity, ease: "easeInOut" },
-          x: { type: "spring", stiffness: 60, damping: 15 } 
-        }}
-        className="fixed bottom-20 right-1/4 text-4xl z-50 pointer-events-none opacity-60"
-      >
-        🌸
-      </motion.div>
-
-      {/* 🚀 Navbar bersih tanpa kirim fungsi ganti tema lagi */}
+      {/* 🚀 NAVBAR BALIK LAGI! (Data dikirim supaya nggak merah/error) */}
+      <Navbar isDark={isDark} toggleTheme={toggleTheme} />
       
       <HeroSection />
       
