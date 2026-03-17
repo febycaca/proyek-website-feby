@@ -47,17 +47,7 @@ const App = () => {
         {/* Animasi Transisi Loading Screen */}
         <AnimatePresence mode="wait">
           {isLoading && <LoadingScreen key="loader" />}
-        </AnimatePresence>
-
-        {/* 🌙 Tombol Switch Dark Mode (Muncul setelah loading selesai) */}
-        {!isLoading && (
-          <button 
-            onClick={() => setIsDark(!isDark)}
-            className="fixed top-6 right-6 z-[100] p-3 rounded-full bg-white dark:bg-[#4C495D] shadow-lg border border-pink-200 dark:border-pink-400/30 text-2xl hover:scale-110 transition-all duration-300"
-          >
-            {isDark ? '🌙' : '☀️'}
-          </button>
-        )}
+        </AnimatePresence> 
 
         {/* Konten Utama Website */}
         {!isLoading && (

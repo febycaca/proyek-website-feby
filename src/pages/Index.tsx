@@ -11,17 +11,19 @@ import { motion } from "framer-motion";
 import Carousel from "@/components/Carousel"; 
 
 const Index = () => {
-  const [isDark, setIsDark] = useState(false);
-  // 🌸 1. Tambahkan state untuk posisi mouse
+  // 🌙 Biarkan tetap 'true' jika kamu ingin defaultnya mode gelap yang estetik
+  const [isDark, setIsDark] = useState(true);
   const [mousePos, setMousePos] = useState({ x: 0 });
 
   useEffect(() => {
     const saved = localStorage.getItem('theme');
-    if (saved === 'dark') setIsDark(true);
+    if (saved === 'dark') {
+      setIsDark(true);
+    } else if (saved === 'light') {
+      setIsDark(false);
+    }
 
-    // 🌸 2. Fungsi untuk tangkap gerakan mouse
     const handleMouseMove = (e: MouseEvent) => {
-      // Kita ambil posisi X relatif terhadap tengah layar (-1 sampai 1)
       setMousePos({ x: (e.clientX / window.innerWidth) * 2 - 1 });
     };
 
@@ -32,24 +34,18 @@ const Index = () => {
   useEffect(() => {
     if (isDark) {
       document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
     } else {
       document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
     }
   }, [isDark]);
-
-  const toggleTheme = () => setIsDark(!isDark);
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       
-      {/* 🌸 3. Kumpulan Bunga Sakura Interaktif */}
-      {/* Bunga 1 (Kanan Atas) */}
+      {/* 🌸 Bunga Sakura Interaktif (Tetap Ada) */}
       <motion.div
         animate={{ 
           y: [0, -20, 0],
-          // Bergeser ke kiri saat mouse ke kanan (mousePos.x * -30)
           x: mousePos.x * -30 
         }}
         transition={{ 
@@ -61,11 +57,10 @@ const Index = () => {
         🌸
       </motion.div>
 
-      {/* Bunga 2 (Kiri Tengah) */}
       <motion.div
         animate={{ 
           y: [0, 15, 0],
-          x: mousePos.x * -50 // Geser lebih jauh
+          x: mousePos.x * -50 
         }}
         transition={{ 
           y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
@@ -76,7 +71,6 @@ const Index = () => {
         🌸
       </motion.div>
 
-      {/* Bunga 3 (Kanan Bawah) */}
       <motion.div
         animate={{ 
           y: [0, -10, 0],
@@ -91,7 +85,7 @@ const Index = () => {
         🌸
       </motion.div>
 
-      <Navbar isDark={isDark} toggleTheme={toggleTheme} />
+      {/* 🚀 Navbar bersih tanpa kirim fungsi ganti tema lagi */}
       
       <HeroSection />
       
