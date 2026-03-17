@@ -1,7 +1,8 @@
 import type { Config } from "tailwindcss";
 
 export default {
-  darkMode: ["class"],
+  // Ubah baris ini agar mode gelap dikontrol oleh class 'dark' di HTML
+  darkMode: "class", 
   content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
   prefix: "",
   theme: {
@@ -18,6 +19,10 @@ export default {
         display: ['Space Grotesk', 'sans-serif'],
       },
       colors: {
+        // --- TAMBAHAN WARNA SOFT DARK FEBY ---
+        "soft-dark": "#2D283E",
+        "soft-purple": "#4C495D",
+        // --------------------------------------
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -98,5 +103,4 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
 } satisfies Config;
