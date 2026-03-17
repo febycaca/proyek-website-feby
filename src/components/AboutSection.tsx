@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Code2, Video, ChevronDown, Flower } from 'lucide-react';
+import { Code2, ChevronDown, Flower, BookHeart, UserCircle } from 'lucide-react';
 
+// Efek Bunga Sakura Berguguran
 const SakuraFalling = () => {
   const petals = Array.from({ length: 15 });
   return (
@@ -29,6 +30,7 @@ const SakuraFalling = () => {
   );
 };
 
+// Dekorasi Lingkaran Lembut
 const JapaneseDecorations = () => {
   return (
     <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
@@ -54,12 +56,14 @@ export default function AboutSection() {
   const accordionData = [
     {
       title: "Passionate Developer",
+      icon: <Code2 className="w-5 h-5 text-pink-400" />,
       content: "Halo! Saya Feby. Pelajar yang punya ketertarikan besar di dunia web. Fokus saya sederhana: bikin website yang nggak cuma enak dilihat, tapi juga asyik buat digunain dan disukai oleh berbagai kalangan orang.",
       content2: "Bagi saya, coding adalah soal memecahkan masalah dengan logika yang rapi dan visual yang pas. Di dalam portofolio ini, setiap proyek adalah hasil eksperimen saya dengan teknologi baru.",
       content3: "Mulai dari struktur kode yang efisien sampai detail ikonografi bunga sakura yang mempercantik tampilan."
     },
     {
-      title: "Hobby",
+      title: "Hobby & Dreams",
+      icon: <BookHeart className="w-5 h-5 text-pink-400" />,
       content: "Selain tertarik pada coding, saya juga sangat senang menulis, terutama menulis novel dan cerpen.",
       content2: "Saya percaya bahwa suatu saat saya dapat menerbitkan buku milik saya sendiri.",
       content3: "Mungkin saya bisa membuat sebuah website perbukuan agar semua orang dapat membaca tanpa harus mengeluarkan biaya."
@@ -67,85 +71,107 @@ export default function AboutSection() {
   ];
 
   return (
-    <section id="about" className="relative py-20 md:py-32 bg-[#fff5f7] overflow-hidden border-t-4 border-pink-200">
+    <section id="about" className="relative py-20 md:py-32 bg-[#fff9fa] overflow-hidden border-t-4 border-pink-100">
       <SakuraFalling />
       <JapaneseDecorations />
 
       <div className="container mx-auto px-4 relative z-10">
+        {/* JUDUL SECTION */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <span className="text-pink-500 font-medium mb-2 block tracking-widest text-sm uppercase">About Me / アバウトミー</span>
-          <h2 className="font-display text-3xl md:text-5xl font-bold mb-4 text-gray-800">
+          <span className="text-pink-400 font-medium mb-2 block tracking-[0.3em] text-xs uppercase">About Me / アバウトミー</span>
+          <h2 className="font-display text-4xl md:text-5xl font-bold mb-4 text-gray-800">
             This is me!
           </h2>
           <div className="flex justify-center items-center gap-2">
-            <div className="w-16 h-1 bg-pink-300 rounded-full" />
-            <Flower className="w-5 h-5 text-pink-400" />
-            <div className="w-16 h-1 bg-pink-300 rounded-full" />
+            <div className="w-12 h-[2px] bg-pink-200" />
+            <Flower className="w-5 h-5 text-pink-300 animate-spin-slow" />
+            <div className="w-12 h-[2px] bg-pink-200" />
           </div>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+          {/* BAGIAN FOTO */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, type: "spring" }}
+            transition={{ duration: 0.8 }}
           >
-            <div className="relative group">
+            <div className="relative">
+              {/* Bingkai Belakang */}
+              <div className="absolute -inset-4 bg-gradient-to-tr from-pink-200 to-rose-100 rounded-[2rem] blur-xl opacity-50 -z-10 animate-pulse" />
+              
               <motion.div 
-                whileHover={{ scale: 1.02, rotate: -1 }}
-                className="aspect-square rounded-2xl overflow-hidden shadow-xl relative z-10 border-4 border-white bg-white p-2"
+                whileHover={{ y: -10, rotate: 1 }}
+                className="aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl relative z-10 border-8 border-white bg-white"
               >
-                <div className="w-full h-full rounded-xl overflow-hidden bg-pink-50 flex items-center justify-center">
-                  <img 
-                    src="/pict.jpeg" 
-                    alt="Feby Calista Balqis" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+                <img 
+                  src="/pict.jpeg" 
+                  alt="Feby Calista Balqis" 
+                  className="w-full h-full object-cover"
+                />
               </motion.div>
-              <div className="absolute -inset-4 bg-pink-200/50 rounded-2xl blur-2xl -z-10" />
+              
+              {/* Hiasan Ikon Bunga Kecil */}
+              <motion.div 
+                animate={{ rotate: 360 }}
+                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                className="absolute -bottom-6 -right-6 z-20 bg-white p-3 rounded-full shadow-lg border border-pink-50"
+              >
+                <UserCircle className="w-8 h-8 text-pink-400" />
+              </motion.div>
             </div>
           </motion.div>
 
-          <div className="space-y-8">
-            <div className="space-y-4">
-              {accordionData.map((item, index) => (
-                <motion.div
-                  key={index}
-                  className="border border-pink-100 rounded-xl overflow-hidden bg-white/60 backdrop-blur-sm shadow-sm"
+          {/* BAGIAN ACCORDION */}
+          <div className="space-y-6">
+            {accordionData.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.2 }}
+                className="rounded-2xl overflow-hidden bg-white/40 backdrop-blur-md border border-white shadow-sm hover:shadow-md transition-all"
+              >
+                <button
+                  onClick={() => setExpanded(expanded === index ? -1 : index)}
+                  className="w-full p-5 flex items-center justify-between text-left transition-colors group"
                 >
-                  <button
-                    onClick={() => setExpanded(expanded === index ? -1 : index)}
-                    className="w-full p-4 flex items-center justify-between text-left hover:bg-pink-50/50 transition-colors"
-                  >
-                    <span className="font-display font-bold text-lg text-gray-700">{item.title}</span>
-                    <ChevronDown className={`h-5 w-5 text-pink-400 transition-transform ${expanded === index ? 'rotate-180' : ''}`} />
-                  </button>
-                  <AnimatePresence>
-                    {expanded === index && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                      >
-                        <div className="p-4 pt-0 text-gray-600 text-sm md:text-base border-t border-pink-50">
-                          <p>{item.content}</p>
-                          <p className="mt-2 font-medium">{item.content2}</p>
-                          <p className="mt-2">{item.content3}</p>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.div>
-              ))}
-            </div>
+                  <div className="flex items-center gap-4">
+                    <div className="p-2 bg-pink-50 rounded-lg group-hover:scale-110 transition-transform">
+                      {item.icon}
+                    </div>
+                    <span className="font-bold text-lg text-rose-900/80">{item.title}</span>
+                  </div>
+                  <ChevronDown className={`h-5 w-5 text-pink-300 transition-transform duration-300 ${expanded === index ? 'rotate-180' : ''}`} />
+                </button>
+                
+                <AnimatePresence>
+                  {expanded === index && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.4, ease: "easeInOut" }}
+                    >
+                      <div className="px-6 pb-6 text-rose-900/70 text-sm md:text-base space-y-3 font-medium">
+                        <div className="w-full h-[1px] bg-pink-50 mb-4" />
+                        <p className="leading-relaxed">{item.content}</p>
+                        <p className="italic text-pink-500">{item.content2}</p>
+                        <p className="leading-relaxed">{item.content3}</p>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>
