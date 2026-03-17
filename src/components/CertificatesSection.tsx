@@ -116,13 +116,18 @@ export default function SakuraMoodboard() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
+              
+              // --- BAGIAN ANIMASI HOVER YANG KITA UBAH ---
               whileHover={{ 
-                scale: 1.05, 
-                rotate: 0, 
-                zIndex: 20,
-                transition: { duration: 0.2 } 
+                scale: 1.1,         // Membesar lebih kelihatan
+                rotate: 0,          // Balik jadi tegak
+                y: -15,             // Melompat ke atas sedikit
+                zIndex: 50,         // Biar paling depan
+                transition: { type: "spring", stiffness: 300 } // Efek membal halus
               }}
-              className={`relative p-3 bg-white shadow-[0_10px_30px_-15px_rgba(251,182,206,0.5)] rounded-sm transition-all ${item.rotation} border-b-[30px] border-white`}
+              // ------------------------------------------
+
+              className={`relative p-3 bg-white shadow-[0_10px_30px_-15px_rgba(251,182,206,0.5)] rounded-sm transition-all ${item.rotation} border-b-[30px] border-white cursor-pointer`}
             >
               {/* Tape Dekoratif */}
               <div className={`absolute -top-4 left-1/2 -translate-x-1/2 w-20 h-7 ${item.tapeColor} backdrop-blur-[2px] -rotate-2 z-30 shadow-sm border-x border-white/20`} />
@@ -133,7 +138,7 @@ export default function SakuraMoodboard() {
                 <img 
                   src={item.image} 
                   alt={item.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                 />
                 <div className="absolute bottom-2 right-2 z-20">
                   <Heart className="h-5 w-5 text-white/80 fill-rose-400/40" />
