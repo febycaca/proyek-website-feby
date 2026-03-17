@@ -28,16 +28,14 @@ export default function HeroSection() {
           
           {/* SISI KIRI: Bagian Foto Profil */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }} // Mulai dari kecil
-            animate={{ opacity: 1, scale: 1 }}    // Membesar ke ukuran asli
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="flex-shrink-0 flex justify-center lg:justify-start"
           >
             <div className="relative group">
-              {/* Efek Cahaya Soft Pink */}
               <div className="absolute -inset-6 bg-pink-200/40 rounded-full blur-3xl opacity-100 transition-opacity"></div>
               
-              {/* Bingkai Putus-putus berputar */}
               <motion.div 
                 animate={{ rotate: 360 }}
                 transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
@@ -45,7 +43,6 @@ export default function HeroSection() {
               />
 
               <div className="relative">
-                {/* Bunga Sakura Melayang */}
                 <motion.div 
                   animate={{ y: [0, -10, 0], rotate: [0, 15, 0] }}
                   transition={{ duration: 4, repeat: Infinity }}
@@ -54,7 +51,6 @@ export default function HeroSection() {
                   <Flower className="w-6 h-6 text-pink-400" />
                 </motion.div>
 
-                {/* KOTAK FOTO */}
                 <div className="relative w-64 h-80 md:w-80 md:h-[450px] overflow-hidden rounded-2xl glass border-2 border-white/40 shadow-2xl z-10">
                   <img 
                     src="/WhatsApp Image 2026-03-13 at 12.59.08.jpeg" 
@@ -88,7 +84,6 @@ export default function HeroSection() {
               </motion.span>
             </motion.div>
 
-            {/* ANIMASI NAMA & JUDUL (SUDAH PINK SEMUA) */}
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -97,7 +92,6 @@ export default function HeroSection() {
             >
               Feby Calista Balqis
               <br />
-              {/* WARNA UNGU DIGANTI KE ROSE/PINK */}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-rose-400"> Portofolio</span>
             </motion.h1>
 
@@ -128,10 +122,12 @@ export default function HeroSection() {
               >
                 Lihat Projects
               </Button>
+
+              {/* TOMBOL YANG DIUBAH WARNA HOVERNYA */}
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="rounded-full px-8 border-pink-200 text-pink-500 hover:bg-pink-50 transition-all hover:scale-105"
+                className="rounded-full px-8 border-pink-200 text-pink-500 hover:text-pink-700 hover:border-pink-400 hover:bg-pink-50 transition-all hover:scale-105"
                 onClick={() => {
                   const element = document.querySelector('#contact');
                   if (element) element.scrollIntoView({ behavior: 'smooth' });
