@@ -25,7 +25,7 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
     { label: 'About Me', href: '#about' },
     { label: 'Akademik', href: '#skills' },
     { label: 'Library', href: '#projects' },
-    { label: 'kontak', href: '#contact' },
+    { label: 'Kontak', href: '#contact' },
   ];
 
   const scrollToSection = (href: string) => {
@@ -44,8 +44,10 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
         isScrolled ? 'glass-strong shadow-card bg-[var(--navbg)]' : 'bg-[var(--navbg)]'
       }`}
     >
-      <div className="container mx-auto px-4 bg-navbg">
-        <div className="flex items-center justify-betwen h-16 med:h-20">
+      <div className="container mx-auto px-4">
+        {/* ✨ PERBAIKAN DI SINI: justify-between (huruf 'e' ditambah) */}
+        <div className="flex items-center justify-between h-16 md:h-20">
+          
           <motion.a
             href="#home"
             onClick={(e) => {
@@ -58,7 +60,7 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
             Feby's portofolio
           </motion.a>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - Otomatis ke kanan karena justify-between */}
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <motion.a
@@ -74,6 +76,7 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
                 {item.label}
               </motion.a>
             ))}
+            
             <Button
               variant="ghost"
               size="icon"
@@ -88,7 +91,7 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
                     animate={{ rotate: 0, opacity: 1 }}
                     exit={{ rotate: 90, opacity: 0 }}
                   >
-                    <Sun className="h-5 w-5" />
+                    <Sun className="h-5 w-5 text-pink-500" />
                   </motion.div>
                 ) : (
                   <motion.div
@@ -97,14 +100,14 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
                     animate={{ rotate: 0, opacity: 1 }}
                     exit={{ rotate: -90, opacity: 0 }}
                   >
-                    <Moon className="h-5 w-5" />
+                    <Moon className="h-5 w-5 text-pink-600" />
                   </motion.div>
                 )}
               </AnimatePresence>
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - Juga otomatis ke kanan */}
           <div className="flex items-center gap-2 md:hidden">
             <Button
               variant="ghost"
@@ -112,7 +115,7 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
               onClick={toggleTheme}
               className="rounded-full"
             >
-              {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              {isDark ? <Sun className="h-5 w-5 text-pink-500" /> : <Moon className="h-5 w-5 text-pink-600" />}
             </Button>
             <Button
               variant="ghost"
@@ -132,7 +135,7 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass-strong border-t border-border"
+            className="md:hidden glass-strong border-t border-border bg-[var(--navbg)]"
           >
             <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
               {navItems.map((item) => (
