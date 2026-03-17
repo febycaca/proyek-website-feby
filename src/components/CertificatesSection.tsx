@@ -66,7 +66,7 @@ const moodItems = [
     id: 7,
     title: 'Musicholic',
     description: 'good music,good mood.',
-    image: 'gambar7.jpg',
+    image: 'gambar9.jpg',
     color: 'from-rose-200 to-pink-300',
     rotation: 'rotate-2',
     icon: <Camera className="h-4 w-4" />,
