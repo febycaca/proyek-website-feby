@@ -45,7 +45,6 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
       }`}
     >
       <div className="container mx-auto px-4">
-        {/* ✨ PERBAIKAN DI SINI: justify-between (huruf 'e' ditambah) */}
         <div className="flex items-center justify-between h-16 md:h-20">
           
           <motion.a
@@ -54,13 +53,13 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
               e.preventDefault();
               scrollToSection('#home');
             }}
-            className="font-display text-xl md:text-2xl font-bold text-gradient cursor-pointer"
+            className="font-display text-xl md:text-2xl font-bold text-pink-600 dark:text-pink-400 cursor-pointer"
             whileHover={{ scale: 1.05 }}
           >
             Feby's portofolio
           </motion.a>
 
-          {/* Desktop Navigation - Otomatis ke kanan karena justify-between */}
+          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <motion.a
@@ -70,7 +69,7 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
                   e.preventDefault();
                   scrollToSection(item.href);
                 }}
-                className="text-muted-foreground hover:text-foreground transition-colors font-medium cursor-pointer"
+                className="text-pink-700/80 dark:text-pink-200/90 hover:text-pink-500 dark:hover:text-pink-400 transition-colors font-medium cursor-pointer"
                 whileHover={{ y: -2 }}
               >
                 {item.label}
@@ -91,7 +90,7 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
                     animate={{ rotate: 0, opacity: 1 }}
                     exit={{ rotate: 90, opacity: 0 }}
                   >
-                    <Sun className="h-5 w-5 text-pink-500" />
+                    <Sun className="h-5 w-5 text-pink-400" />
                   </motion.div>
                 ) : (
                   <motion.div
@@ -107,7 +106,7 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
             </Button>
           </div>
 
-          {/* Mobile Menu Button - Juga otomatis ke kanan */}
+          {/* Mobile Menu Button */}
           <div className="flex items-center gap-2 md:hidden">
             <Button
               variant="ghost"
@@ -115,14 +114,14 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
               onClick={toggleTheme}
               className="rounded-full"
             >
-              {isDark ? <Sun className="h-5 w-5 text-pink-500" /> : <Moon className="h-5 w-5 text-pink-600" />}
+              {isDark ? <Sun className="h-5 w-5 text-pink-400" /> : <Moon className="h-5 w-5 text-pink-600" />}
             </Button>
             <Button
               variant="ghost"
               size="icon"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
-              {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {isMobileMenuOpen ? <X className="h-5 w-5 text-pink-500" /> : <Menu className="h-5 w-5 text-pink-500" />}
             </Button>
           </div>
         </div>
@@ -146,7 +145,7 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
                     e.preventDefault();
                     scrollToSection(item.href);
                   }}
-                  className="text-muted-foreground hover:text-foreground transition-colors font-medium py-2"
+                  className="text-pink-700/80 dark:text-pink-200/90 hover:text-pink-500 font-medium py-2"
                 >
                   {item.label}
                 </a>
