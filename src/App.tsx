@@ -8,12 +8,14 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Index from "./pages/Index";
 import Akademik from "./Akademik";
 import LoadingScreen from "./components/LoadingScreen"; 
-import CustomCursor from "./components/CustomCursor"; // 🌸 Import kursor baru kamu
+import CustomCursor from "./components/CustomCursor"; 
 
 const queryClient = new QueryClient();
 
 const App = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  // 🌙 State untuk Dark Mode
+  const [isDark, setIsDark] = useState<boolean>(false);
 
   useEffect(() => {
     // Menampilkan Loading Screen Sakura selama 2 detik
@@ -24,10 +26,19 @@ const App = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  // 🌙 Effect untuk pasang class "dark" di body HTML
+  useEffect(() => {
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [isDark]);
+
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        {/* 🌸 Custom Cursor diletakkan paling atas agar selalu terlihat */}
+        {/* 🌸 Custom Cursor */}
         <CustomCursor /> 
 
         <Toaster />
@@ -38,19 +49,33 @@ const App = () => {
           {isLoading && <LoadingScreen key="loader" />}
         </AnimatePresence>
 
+        {/* 🌙 Tombol Switch Dark Mode (Muncul setelah loading selesai) */}
+        {!isLoading && (
+          <button 
+            onClick={() => setIsDark(!isDark)}
+            className="fixed top-6 right-6 z-[100] p-3 rounded-full bg-white dark:bg-[#4C495D] shadow-lg border border-pink-200 dark:border-pink-400/30 text-2xl hover:scale-110 transition-all duration-300"
+          >
+            {isDark ? '🌙' : '☀️'}
+          </button>
+        )}
+
         {/* Konten Utama Website */}
         {!isLoading && (
           <motion.div
+            className={isDark ? 'dark' : ''} // Memastikan class dark terpasang
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, ease: "easeOut" }}
           >
-            <BrowserRouter>
-              <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/akademik" element={<Akademik />} />
-              </Routes>
-            </BrowserRouter>
+            {/* Div pembungkus warna background utama */}
+            <div className="min-h-screen bg-white dark:bg-[#2D283E] transition-colors duration-500">
+              <BrowserRouter>
+                <Routes>
+                  <Route path="/" element={<Index />} />
+                  <Route path="/akademik" element={<Akademik />} />
+                </Routes>
+              </BrowserRouter>
+            </div>
           </motion.div>
         )}
       </TooltipProvider>
