@@ -53,7 +53,7 @@ export default function HeroSection() {
 
                 <div className="relative w-64 h-80 md:w-80 md:h-[450px] overflow-hidden rounded-2xl glass border-2 border-white/40 shadow-2xl z-10">
                   <img 
-                    src="/WhatsApp Image 2026-03-13 at 12.59.08.jpeg" 
+                    src="/profile.jpeg" 
                     alt="Feby Calista Balqis"
                     className="w-full h-full object-cover"
                   />

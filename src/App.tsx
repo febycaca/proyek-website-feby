@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AnimatePresence, motion } from 'framer-motion';
 import Index from "./pages/Index";
 import Akademik from "./Akademik";
-import Sertifikat from "./Certificates"; // 🌸 Import halaman sertifikat baru
+import Sertifikat from "./CertificatesSection"; // 🌸 Import halaman sertifikat baru
 import LoadingScreen from "./components/LoadingScreen"; 
 import CustomCursor from "./components/CustomCursor"; 
 
