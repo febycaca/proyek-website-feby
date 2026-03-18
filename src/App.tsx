@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AnimatePresence, motion } from 'framer-motion';
 import Index from "./pages/Index";
 import Akademik from "./Akademik";
+import Sertifikat from "./Certificates"; // 🌸 Import halaman sertifikat baru
 import LoadingScreen from "./components/LoadingScreen"; 
 import CustomCursor from "./components/CustomCursor"; 
 
@@ -63,6 +64,7 @@ const App = () => {
                 <Routes>
                   <Route path="/" element={<Index />} />
                   <Route path="/akademik" element={<Akademik />} />
+                  <Route path="/sertifikat" element={<Sertifikat />} /> {/* 🌸 Rute baru untuk sertifikat */}
                 </Routes>
               </BrowserRouter>
             </div>
