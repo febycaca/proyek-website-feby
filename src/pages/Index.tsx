@@ -4,7 +4,7 @@ import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
 import SkillsSection from '@/components/SkillsSection';
 import ProjectsSection from '@/components/ProjectsSection';
-import CertificatesSection from '@/components/CertificatesSection';
+import CertificatesSection from '@/components/CertificatesSection'; // Pastikan file ini ada di src/components/
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import { motion } from "framer-motion";
@@ -36,13 +36,12 @@ const Index = () => {
     }
   }, [isDark]);
 
-  // Fungsi ini tetap harus ada supaya Navbar nggak error
   const toggleTheme = () => setIsDark(!isDark);
 
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden transition-colors duration-500">
       
-      {/* 🌸 Bunga Sakura Interaktif */}
+      {/* 🌸 Bunga Sakura Interaktif (Floating) */}
       <motion.div
         animate={{ y: [0, -20, 0], x: mousePos.x * -30 }}
         transition={{ 
@@ -65,24 +64,32 @@ const Index = () => {
         🌸
       </motion.div>
 
-      {/* 🚀 NAVBAR BALIK LAGI! (Data dikirim supaya nggak merah/error) */}
+      {/* Navbar */}
       <Navbar isDark={isDark} toggleTheme={toggleTheme} />
       
+      {/* Konten Utama */}
       <HeroSection />
       
       <AboutSection />
 
       <div className="container mx-auto px-4 py-10 text-center">
-        <h2 className="text-3xl font-bold text-pink-600 dark:text-pink-400 mb-6 font-space">
-          Aesthetic japanese vibes 🌸
+        <h2 className="text-3xl font-bold text-pink-600 dark:text-pink-400 mb-6 font-space italic">
+          Aesthetic Japanese Vibes 🌸
         </h2>
         <Carousel />
       </div>
 
       <SkillsSection />
+      
       <ProjectsSection />
-      <CertificatesSection />
+
+      {/* 🌸 BAGIAN SERTIFIKAT FEBY (DI SINI LOKASINYA) 🌸 */}
+      <div id="certificates" className="relative">
+         <CertificatesSection />
+      </div>
+
       <ContactSection />
+      
       <Footer />
     </div>
   );
