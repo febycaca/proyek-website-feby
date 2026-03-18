@@ -13,8 +13,8 @@ const projects = [
     image: '/book-1.jpg', 
     isEmoji: false,
     color: 'from-pink-400/20 to-rose-400/20',
-    github: '', // Kosongkan agar tombol hilang
-    demo: '#', // Isi dengan link asli
+    github: '', 
+    demo: '#', 
   },
   {
     title: 'Mariposa 2',
@@ -24,7 +24,7 @@ const projects = [
     isEmoji: false,
     color: 'from-fuchsia-400/20 to-pink-400/20',
     github: '', 
-    demo: '', // Jika keduanya kosong, tidak ada tombol muncul
+    demo: '', 
   },
   {
     title: 'I Want To Eat Your Pancreas',
@@ -78,14 +78,15 @@ export default function ProjectsSection() {
                 <div key={project.title} className="flex-[0_0_100%] min-w-0 md:flex-[0_0_50%] lg:flex-[0_0_33.33%] px-3">
                   <div className="h-full p-6 glass rounded-2xl shadow-card border border-white/20 bg-white/10 backdrop-blur-sm transition-all duration-300">
                     
-                    <div className={`aspect-square rounded-xl mb-4 flex items-center justify-center bg-gradient-to-br ${project.color} overflow-hidden`}>
+                    {/* HANYA MENGUBAH BAGIAN INI: object-contain dan bg-white agar tidak kepotong */}
+                    <div className={`aspect-square rounded-xl mb-4 flex items-center justify-center bg-white overflow-hidden`}>
                       {project.isEmoji ? (
                         <span className="text-6xl">{project.image}</span>
                       ) : (
                         <img 
                           src={project.image}
                           alt={project.title} 
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-contain"
                         />
                       )}
                     </div>
@@ -102,7 +103,6 @@ export default function ProjectsSection() {
                         ))}
                       </div>
                       
-                      {/* LOGIKA TOMBOL OTOMATIS HILANG */}
                       <div className="flex gap-2 pt-2">
                         {project.github && project.github !== '#' && (
                           <Button size="sm" variant="ghost" className="h-8 w-8 p-0 rounded-full bg-white/50" asChild>

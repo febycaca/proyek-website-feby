@@ -2,12 +2,12 @@ import { motion } from "framer-motion";
 
 const CertificatesSection = () => {
   const certificates = [
-    { id: 1, title: "Sertifikat 1", img: "/sertif1.jpeg" },
-    { id: 2, title: "Sertifikat 2", img: "/sertif2.jpeg" },
-    { id: 3, title: "Sertifikat 3", img: "/sertif3.jpeg" },
-    { id: 4, title: "Sertifikat 4", img: "/sertif4.jpeg" },
-    { id: 5, title: "Sertifikat 5", img: "/sertif5.jpeg" },
-    { id: 6, title: "Sertifikat 6", img: "/sertif6.jpeg" },
+    { id: 1, title: "Peringkat 1 kelas VII-8", img: "/sertif1.jpeg" },
+    { id: 2, title: "Peringkat 1 kelas VIII-6 semester genap", img: "/sertif2.jpeg" },
+    { id: 3, title: "Juara 1 try out kelas VIII khalifah", img: "/sertif3.jpeg" },
+    { id: 4, title: "Sertifikat Anggota Lomba POSI 2023", img: "/sertif4.jpeg" },
+    { id: 5, title: "Peringkat 1 kelas VIII-6 semester ganjil", img: "/sertif5.jpeg" },
+    { id: 6, title: "Peringkat 1 kelas IX-1 semester ganjil", img: "/sertif6.jpeg" },
   ];
 
   return (
@@ -31,15 +31,17 @@ const CertificatesSection = () => {
               whileHover={{ y: -15 }}
               className="bg-white/80 dark:bg-[#3d3552] backdrop-blur-md border-2 border-pink-100 dark:border-pink-900/30 rounded-[2.5rem] overflow-hidden shadow-xl shadow-pink-100/30 p-4"
             >
-              <div className="rounded-[2rem] overflow-hidden mb-5 aspect-video relative">
+              {/* Di sini perubahannya: pakai object-contain dan bg-white */}
+              <div className="rounded-[2rem] overflow-hidden mb-5 aspect-video relative bg-white/50">
                 <img 
                   src={cert.img} 
                   alt={cert.title} 
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain transition-transform duration-500 hover:scale-105"
                 />
               </div>
-              <div className="text-center pb-2">
-                <h3 className="text-lg font-bold text-gray-800 dark:text-pink-100 italic">
+              
+              <div className="text-center pb-2 px-2">
+                <h3 className="text-lg font-bold text-gray-800 dark:text-pink-100 italic leading-tight">
                   {cert.title}
                 </h3>
               </div>
