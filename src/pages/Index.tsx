@@ -4,7 +4,8 @@ import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
 import SkillsSection from '@/components/SkillsSection';
 import ProjectsSection from '@/components/ProjectsSection';
-import CertificatesSection from '@/components/CertificatesSection'; // Pastikan file ini ada di src/components/
+import CertificatesSection from '@/components/CertificatesSection';
+import MoodSection from '@/components/MoodSection'; // <-- SUDAH DIGANTI KE MoodSection
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import { motion } from "framer-motion";
@@ -41,7 +42,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden transition-colors duration-500">
       
-      {/* 🌸 Bunga Sakura Interaktif (Floating) */}
+      {/* 🌸 Bunga Sakura Interaktif */}
       <motion.div
         animate={{ y: [0, -20, 0], x: mousePos.x * -30 }}
         transition={{ 
@@ -53,21 +54,9 @@ const Index = () => {
         🌸
       </motion.div>
 
-      <motion.div
-        animate={{ y: [0, 15, 0], x: mousePos.x * -50 }}
-        transition={{ 
-          y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
-          x: { type: "spring", stiffness: 40, damping: 25 } 
-        }}
-        className="fixed top-1/2 left-5 text-3xl z-50 pointer-events-none opacity-70"
-      >
-        🌸
-      </motion.div>
-
       {/* Navbar */}
       <Navbar isDark={isDark} toggleTheme={toggleTheme} />
       
-      {/* Konten Utama */}
       <HeroSection />
       
       <AboutSection />
@@ -83,10 +72,13 @@ const Index = () => {
       
       <ProjectsSection />
 
-      {/* 🌸 BAGIAN SERTIFIKAT FEBY (DI SINI LOKASINYA) 🌸 */}
+      {/* 🌸 BAGIAN SERTIFIKAT 🌸 */}
       <div id="certificates" className="relative">
          <CertificatesSection />
       </div>
+
+      {/* 🌸 MY RANDOM MOODS (MoodSection) 🌸 */}
+      <MoodSection />
 
       <ContactSection />
       
