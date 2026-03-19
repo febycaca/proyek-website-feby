@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { Code2, Flower, BookHeart, UserCircle, Sparkles } from 'lucide-react';
+import { Code2, Flower, BookHeart, UserCircle, Sparkles, Layout } from 'lucide-react';
 import {
   Accordion,
   AccordionContent,
@@ -7,7 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-// Efek Bunga Sakura Berguguran
+// Efek Bunga Sakura Berguguran (Tetap Aman)
 const SakuraFalling = () => {
   const petals = Array.from({ length: 15 });
   return (
@@ -61,7 +61,6 @@ export default function AboutSection() {
       <JapaneseDecorations />
 
       <div className="container mx-auto px-4 relative z-10">
-        {/* JUDUL SECTION */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -81,7 +80,6 @@ export default function AboutSection() {
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
-          {/* BAGIAN FOTO */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -90,7 +88,6 @@ export default function AboutSection() {
           >
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-tr from-pink-200 to-rose-100 rounded-[2rem] blur-xl opacity-50 -z-10 animate-pulse" />
-              
               <motion.div 
                 whileHover={{ y: -10, rotate: 1 }}
                 className="aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl relative z-10 border-8 border-white dark:border-pink-950/30 bg-white"
@@ -101,7 +98,6 @@ export default function AboutSection() {
                   className="w-full h-full object-cover"
                 />
               </motion.div>
-              
               <motion.div 
                 animate={{ rotate: 360 }}
                 transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
@@ -112,11 +108,10 @@ export default function AboutSection() {
             </div>
           </motion.div>
 
-          {/* BAGIAN ACCORDION - Menggunakan Shadcn UI */}
+          {/* BAGIAN ACCORDION - Penambahan Item Baru */}
           <div className="space-y-4">
             <Accordion type="single" collapsible defaultValue="item-0" className="w-full">
               
-              {/* Item 1: Developer */}
               <AccordionItem value="item-0" className="border-none mb-4 bg-white/40 dark:bg-pink-950/10 backdrop-blur-md px-6 rounded-2xl shadow-sm border border-white/20">
                 <AccordionTrigger className="hover:no-underline">
                   <div className="flex items-center gap-4">
@@ -129,12 +124,10 @@ export default function AboutSection() {
                 <AccordionContent className="text-rose-900/70 dark:text-pink-200/70 leading-relaxed text-base space-y-4">
                   <p>Halo! Saya Feby. Pelajar yang punya ketertarikan besar di dunia web. Fokus saya sederhana: bikin website yang nggak cuma enak dilihat, tapi juga asyik buat digunain.</p>
                   <p className="font-medium italic text-pink-500">Coding adalah soal memecahkan masalah dengan logika yang rapi dan visual yang pas.</p>
-                  <p>Di portofolio ini, setiap proyek adalah hasil eksperimen saya dengan teknologi baru, mulai dari struktur kode sampai detail sakuranya juga.</p>
                 </AccordionContent>
               </AccordionItem>
 
-              {/* Item 2: Hobby */}
-              <AccordionItem value="item-1" className="border-none bg-white/40 dark:bg-pink-950/10 backdrop-blur-md px-6 rounded-2xl shadow-sm border border-white/20">
+              <AccordionItem value="item-1" className="border-none mb-4 bg-white/40 dark:bg-pink-950/10 backdrop-blur-md px-6 rounded-2xl shadow-sm border border-white/20">
                 <AccordionTrigger className="hover:no-underline">
                   <div className="flex items-center gap-4">
                     <div className="p-2 bg-pink-50 dark:bg-pink-900/30 rounded-lg">
@@ -149,7 +142,21 @@ export default function AboutSection() {
                     <Sparkles className="w-4 h-4" />
                     <p>Mimpi saya adalah menerbitkan buku sendiri suatu hari nanti.</p>
                   </div>
-                  <p>Saya juga bercita-cita membuat website perbukuan gratis agar semua orang bisa membaca tanpa terkendala biaya.</p>
+                </AccordionContent>
+              </AccordionItem>
+
+              {/* ITEM ACCORDION BARU DI SINI */}
+              <AccordionItem value="item-2" className="border-none bg-white/40 dark:bg-pink-950/10 backdrop-blur-md px-6 rounded-2xl shadow-sm border border-white/20">
+                <AccordionTrigger className="hover:no-underline">
+                  <div className="flex items-center gap-4">
+                    <div className="p-2 bg-pink-50 dark:bg-pink-900/30 rounded-lg">
+                      <Layout className="w-5 h-5 text-pink-400" />
+                    </div>
+                    <span className="font-bold text-lg text-rose-900/80 dark:text-pink-100">Future Projects</span>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent className="text-rose-900/70 dark:text-pink-200/70 leading-relaxed text-base">
+                  <p>Ke depannya, saya berencana membangun platform perpustakaan digital gratis yang bisa diakses siapa saja untuk meningkatkan minat baca teman-teman pelajar lainnya.</p>
                 </AccordionContent>
               </AccordionItem>
 

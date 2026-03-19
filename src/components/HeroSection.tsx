@@ -101,8 +101,8 @@ export default function HeroSection() {
               transition={{ duration: 1, delay: 0.5 }}
               className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto lg:mx-0"
             >
-              Saya buat website ini untuk memenuhi tugas coding class X-10. 
-              Semoga bermanfaat untuk kita semua. ✨
+              Saya buat website ini untuk memenuhi tugas koding kelas X-10. 
+              Semoga bermanfaat untuk kita semua ✨
             </motion.p>
 
             {/* Tombol Aksi */}
