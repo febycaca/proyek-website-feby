@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Code2, Flower, BookHeart, UserCircle, Sparkles, Layout } from 'lucide-react';
 import {
   Accordion,
@@ -7,7 +7,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-// Efek Bunga Sakura Berguguran (Tetap Aman)
 const SakuraFalling = () => {
   const petals = Array.from({ length: 15 });
   return (
@@ -92,74 +91,54 @@ export default function AboutSection() {
                 whileHover={{ y: -10, rotate: 1 }}
                 className="aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl relative z-10 border-8 border-white dark:border-pink-950/30 bg-white"
               >
-                <img 
-                  src="/pict.jpeg" 
-                  alt="Feby Calista Balqis" 
-                  className="w-full h-full object-cover"
-                />
-              </motion.div>
-              <motion.div 
-                animate={{ rotate: 360 }}
-                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                className="absolute -bottom-6 -right-6 z-20 bg-white dark:bg-pink-900 p-3 rounded-full shadow-lg border border-pink-50 dark:border-pink-800"
-              >
-                <UserCircle className="w-8 h-8 text-pink-400" />
+                <img src="/pict.jpeg" alt="Feby" className="w-full h-full object-cover" />
               </motion.div>
             </div>
           </motion.div>
 
-          {/* BAGIAN ACCORDION - Penambahan Item Baru */}
           <div className="space-y-4">
             <Accordion type="single" collapsible defaultValue="item-0" className="w-full">
-              
               <AccordionItem value="item-0" className="border-none mb-4 bg-white/40 dark:bg-pink-950/10 backdrop-blur-md px-6 rounded-2xl shadow-sm border border-white/20">
                 <AccordionTrigger className="hover:no-underline">
                   <div className="flex items-center gap-4">
-                    <div className="p-2 bg-pink-50 dark:bg-pink-900/30 rounded-lg">
-                      <Code2 className="w-5 h-5 text-pink-400" />
+                    <div className="p-2 bg-pink-50 dark:bg-pink-900/30 rounded-lg text-pink-400">
+                      <Code2 className="w-5 h-5" />
                     </div>
                     <span className="font-bold text-lg text-rose-900/80 dark:text-pink-100">Passionate Developer</span>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="text-rose-900/70 dark:text-pink-200/70 leading-relaxed text-base space-y-4">
                   <p>Halo! Saya Feby. Pelajar yang punya ketertarikan besar di dunia web. Fokus saya sederhana: bikin website yang nggak cuma enak dilihat, tapi juga asyik buat digunain.</p>
-                  <p className="font-medium italic text-pink-500">Coding adalah soal memecahkan masalah dengan logika yang rapi dan visual yang pas.</p>
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="item-1" className="border-none mb-4 bg-white/40 dark:bg-pink-950/10 backdrop-blur-md px-6 rounded-2xl shadow-sm border border-white/20">
                 <AccordionTrigger className="hover:no-underline">
                   <div className="flex items-center gap-4">
-                    <div className="p-2 bg-pink-50 dark:bg-pink-900/30 rounded-lg">
-                      <BookHeart className="w-5 h-5 text-pink-400" />
+                    <div className="p-2 bg-pink-50 dark:bg-pink-900/30 rounded-lg text-pink-400">
+                      <BookHeart className="w-5 h-5" />
                     </div>
                     <span className="font-bold text-lg text-rose-900/80 dark:text-pink-100">Hobby & Dreams</span>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="text-rose-900/70 dark:text-pink-200/70 leading-relaxed text-base space-y-4">
-                  <p>Selain koding, saya sangat senang menulis, terutama novel dan cerpen. Menulis adalah cara saya bercerita melalui kata-kata.</p>
-                  <div className="flex items-center gap-2 text-pink-500 font-medium">
-                    <Sparkles className="w-4 h-4" />
-                    <p>Mimpi saya adalah menerbitkan buku sendiri suatu hari nanti.</p>
-                  </div>
+                  <p>Selain koding, saya sangat senang menulis novel dan cerpen. Mimpi saya adalah menerbitkan buku sendiri suatu hari nanti.</p>
                 </AccordionContent>
               </AccordionItem>
 
-              {/* ITEM ACCORDION BARU DI SINI */}
               <AccordionItem value="item-2" className="border-none bg-white/40 dark:bg-pink-950/10 backdrop-blur-md px-6 rounded-2xl shadow-sm border border-white/20">
                 <AccordionTrigger className="hover:no-underline">
                   <div className="flex items-center gap-4">
-                    <div className="p-2 bg-pink-50 dark:bg-pink-900/30 rounded-lg">
-                      <Layout className="w-5 h-5 text-pink-400" />
+                    <div className="p-2 bg-pink-50 dark:bg-pink-900/30 rounded-lg text-pink-400">
+                      <Layout className="w-5 h-5" />
                     </div>
                     <span className="font-bold text-lg text-rose-900/80 dark:text-pink-100">Future Projects</span>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="text-rose-900/70 dark:text-pink-200/70 leading-relaxed text-base">
-                  <p>Ke depannya, saya berencana membangun platform perpustakaan digital gratis yang bisa diakses siapa saja untuk meningkatkan minat baca teman-teman pelajar lainnya.</p>
+                  <p>Ke depannya, saya berencana membangun platform perpustakaan digital gratis yang bisa diakses siapa saja.</p>
                 </AccordionContent>
               </AccordionItem>
-
             </Accordion>
           </div>
         </div>

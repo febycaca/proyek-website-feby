@@ -1,7 +1,6 @@
 import * as React from "react";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
-import { ChevronDown, Flower } from "lucide-react";
-
+import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const Accordion = AccordionPrimitive.Root;
@@ -10,7 +9,6 @@ const AccordionItem = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>
 >(({ className, ...props }, ref) => (
-  // Aku tambahkan border-pink supaya senada
   <AccordionPrimitive.Item 
     ref={ref} 
     className={cn("border-b border-pink-100 dark:border-pink-900/30", className)} 
@@ -27,7 +25,6 @@ const AccordionTrigger = React.forwardRef<
     <AccordionPrimitive.Trigger
       ref={ref}
       className={cn(
-        // Perubahan: warna teks pink pas hover & rotasi icon
         "flex flex-1 items-center justify-between py-4 font-medium transition-all hover:text-pink-500 dark:hover:text-pink-300 [&[data-state=open]>svg]:rotate-180",
         className,
       )}
@@ -52,7 +49,6 @@ const AccordionContent = React.forwardRef<
     <div className={cn("pb-4 pt-0 leading-relaxed", className)}>{children}</div>
   </AccordionPrimitive.Content>
 ));
-
 AccordionContent.displayName = AccordionPrimitive.Content.displayName;
 
 export { Accordion, AccordionItem, AccordionTrigger, AccordionContent };
